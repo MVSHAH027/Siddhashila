@@ -1,0 +1,2551 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="terracotta">
+  <title>જીવન એક સિદ્ધશિલા — બાલોતરા મૌન સાધના શિબિર અર્ક</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Serif+Gujarati:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Terracotta warm sunlit plaster palette) */
+      --background: #f9f3eb;
+      --surface-container-low: #f3e9dc;
+      --surface-container: #ede0d0;
+      --surface-container-high: #e4d4c0;
+      --surface-card-pure: #fdf9f4;
+
+      /* Ink */
+      --on-surface: #261b15;
+      --on-surface-variant: #57483f;
+
+      /* Borders & Ornamental Hairlines */
+      --outline: #9e8a78;
+      --outline-variant: #dfd0be;
+      --border-terracotta: #c98a6b;
+      --border-emerald: #b5d6c9;
+      --border-brass: #d4b98c;
+      --border-rose: #d4a6a6;
+      --border-btn-secondary: #c4b29e;
+
+      /* Accents */
+      --primary: #b84a24;
+      --primary-hover: #9a3b1a;
+      --on-primary: #ffffff;
+      --primary-container: #f7ebe0;
+      --on-primary-container: #7d2e12;
+
+      --secondary: #8f6524;
+      --secondary-container: #f5ebd8;
+      --on-secondary-container: #634414;
+
+      --tertiary: #1d6356;
+      --tertiary-hover: #154b41;
+      --on-tertiary: #ffffff;
+      --tertiary-container: #e1efe9;
+      --on-tertiary-container: #13473d;
+
+      --rose: #8c3838;
+      --rose-container: #f5e6e6;
+      --on-rose-container: #662323;
+
+      --error: #b82929;
+      --on-error: #ffffff;
+
+      /* Semantic */
+      --positive: #1d6356;
+      --warning: #8f6524;
+      --focus: #b84a24;
+
+      /* Data series */
+      --data-1: #b84a24;
+      --data-2: #1d6356;
+      --data-3: #b5893e;
+      --data-4: #8c3838;
+      --data-context: #a39384;
+
+      /* Fonts (Gujarati families first, then Terracotta serif/sans) */
+      --font-headline: 'Noto Serif Gujarati', 'Cormorant Garamond', serif;
+      --font-body: 'Noto Sans Gujarati', 'Plus Jakarta Sans', sans-serif;
+      --font-label: 'Noto Sans Gujarati', 'Plus Jakarta Sans', sans-serif;
+
+      /* Type Scale (Narrative) */
+      --display-size: clamp(2.25rem, 1.4rem + 3.2vw, 3.85rem);
+      --headline-size: clamp(1.55rem, 1.15rem + 1.5vw, 2.35rem);
+      --subhead-size: clamp(1.15rem, 1.02rem + 0.45vw, 1.4rem);
+      --body-size: clamp(1.03rem, 0.98rem + 0.22vw, 1.15rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.14vw, 0.84rem);
+
+      /* Shape */
+      --rounded: 0.375rem;
+      --rounded-lg: 0.75rem;
+      --rounded-arch: 28px 28px 6px 6px;
+      --rounded-full: 9999px;
+
+      /* Style effects */
+      --soft-shadow: 0 4px 18px rgb(38 27 21 / 0.04);
+      --soft-shadow-raised: 0 8px 28px rgb(38 27 21 / 0.08);
+      --warm-hairline: 1px solid var(--outline-variant);
+      --brass-gradient: linear-gradient(90deg, #d8c3b0, #b5893e, #d8c3b0);
+      --hero-glow: radial-gradient(circle at 50% 0%, #f3e2cf 0%, #f9f3eb 72%);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset -- required */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.72;
+      scroll-behavior: smooth;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-xl);
+      padding: var(--space-lg);
+      max-width: 1160px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Hero Masthead */
+    .masthead {
+      background: var(--hero-glow);
+      border-bottom: var(--warm-hairline);
+      padding-block: var(--space-2xl) var(--space-xl);
+      padding-inline: var(--space-lg);
+      text-align: center;
+    }
+    .masthead-inner {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .kicker-row {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .badge-emerald {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      border: 1px solid var(--border-emerald);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .badge-terracotta {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      border: 1px solid var(--border-terracotta);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .badge-brass {
+      background: var(--secondary-container);
+      color: var(--on-secondary-container);
+      border: 1px solid var(--border-brass);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .badge-rose {
+      background: var(--rose-container);
+      color: var(--on-rose-container);
+      border: 1px solid var(--border-rose);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--display-size);
+      line-height: 1.18;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-md) 0;
+    }
+    .title em {
+      font-style: normal;
+      color: var(--primary);
+    }
+    .hero-lede {
+      max-width: 65ch;
+      margin: 0 auto var(--space-lg) auto;
+      color: var(--on-surface-variant);
+      font-size: var(--subhead-size);
+      line-height: 1.65;
+    }
+
+    .ornament-rule {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-block: var(--space-lg);
+      color: var(--secondary);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+    }
+    .ornament-rule::before,
+    .ornament-rule::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--brass-gradient);
+    }
+
+    /* Progress & Summary Metrics Row (Riad Arch Cards) */
+    .summary-arch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+    .arch-card {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-arch);
+      padding: var(--space-lg) var(--space-md) var(--space-md);
+      text-align: center;
+      box-shadow: var(--soft-shadow);
+      transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .arch-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--soft-shadow-raised);
+    }
+    .arch-card.is-featured {
+      background: var(--primary-container);
+      border-color: var(--border-terracotta);
+    }
+    .arch-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .arch-figure {
+      font-family: var(--font-headline);
+      font-size: clamp(1.75rem, 1.3rem + 1.2vw, 2.35rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--on-surface);
+      margin-bottom: var(--space-xs);
+    }
+    .arch-caption {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+    }
+
+    /* Chapter Navigation Bar */
+    .chapter-nav {
+      background: var(--surface-container-low);
+      border: var(--warm-hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--soft-shadow);
+    }
+    .nav-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+    .nav-heading {
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .day-filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .pill-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      border: 1px solid var(--border-btn-secondary);
+      background: var(--surface-card-pure);
+      color: var(--on-surface);
+      font-weight: 600;
+      font-size: var(--label-size);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      transition: background-color var(--dur-micro) var(--ease-in-out), color var(--dur-micro) var(--ease-in-out), box-shadow var(--dur-micro) var(--ease-in-out);
+      text-decoration: none;
+    }
+    .pill-btn:hover {
+      background: var(--surface-container);
+      box-shadow: var(--soft-shadow);
+    }
+    .pill-btn.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .pill-btn-emerald {
+      background: var(--tertiary);
+      color: var(--on-tertiary);
+      border-color: var(--tertiary);
+    }
+    .pill-btn-emerald:hover {
+      background: var(--tertiary-hover);
+      color: var(--on-tertiary);
+    }
+
+    /* 12-Session Atlas Grid */
+    .atlas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .atlas-tile {
+      background: var(--surface-card-pure);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-arch);
+      padding: var(--space-md);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      transition: transform var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+      min-height: 44px;
+    }
+    .atlas-tile:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--soft-shadow-raised);
+      background: var(--primary-container);
+    }
+    .atlas-tile.is-selected {
+      background: var(--primary-container);
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+    .atlas-tile.is-hidden-day {
+      display: none;
+    }
+    .atlas-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    .atlas-title {
+      font-family: var(--font-headline);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+    .atlas-sub {
+      font-size: 0.88rem;
+      color: var(--on-surface-variant);
+      line-height: 1.45;
+    }
+    .atlas-status {
+      margin-top: auto;
+      padding-top: var(--space-xs);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+    }
+
+    /* Quick Preview Strip inside Atlas */
+    .atlas-preview {
+      margin-top: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--surface-container);
+      border-radius: var(--rounded-lg);
+      border-left: 4px solid var(--primary);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .atlas-preview-text {
+      flex: 1 1 320px;
+    }
+    .atlas-preview-text h3 {
+      font-family: var(--font-headline);
+      margin: 0 0 var(--space-xs) 0;
+      font-size: 1.2rem;
+    }
+    .atlas-preview-text p {
+      margin: 0;
+      color: var(--on-surface-variant);
+      font-size: 0.96rem;
+    }
+
+    /* Interactive Tool 1: Kalpana-Chhed Meditation Visualizer */
+    .meditation-studio {
+      background: var(--surface-container-low);
+      border: var(--warm-hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--soft-shadow);
+    }
+    .studio-header {
+      margin-bottom: var(--space-lg);
+    }
+    .studio-header h2 {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      margin: var(--space-xs) 0 var(--space-sm) 0;
+      color: var(--on-surface);
+    }
+    .studio-header p {
+      margin: 0;
+      max-width: 65ch;
+      color: var(--on-surface-variant);
+    }
+    .meditation-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .mandala-stage {
+      background: var(--surface-card-pure);
+      border: var(--warm-hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 330px;
+    }
+    .mandala-svg {
+      width: 100%;
+      max-width: 290px;
+      height: auto;
+    }
+    .mandala-ring {
+      transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out);
+      transform-origin: center;
+    }
+    .mandala-ring.is-dissolved {
+      opacity: 0.12;
+      transform: scale(0.95);
+    }
+    .meditation-controls {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+    .step-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+    .step-dot-btn {
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: var(--rounded-full);
+      border: 1px solid var(--border-btn-secondary);
+      background: var(--surface-card-pure);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-in-out), color var(--dur-micro) var(--ease-in-out);
+    }
+    .step-dot-btn.is-active {
+      background: var(--tertiary);
+      color: var(--on-tertiary);
+      border-color: var(--tertiary);
+    }
+    .step-dot-btn.is-passed {
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      border-color: var(--border-emerald);
+    }
+    .meditation-card {
+      background: var(--surface-card-pure);
+      border: var(--warm-hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+    .meditation-card h3 {
+      font-family: var(--font-headline);
+      font-size: 1.35rem;
+      margin: 0 0 var(--space-sm) 0;
+      color: var(--primary);
+    }
+    .meditation-card p {
+      margin: 0 0 var(--space-md) 0;
+      max-width: 65ch;
+    }
+    .meditation-essence {
+      padding: var(--space-sm) var(--space-md);
+      background: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      border-radius: var(--rounded);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    /* Interactive Tool 2: Perspective Flipper (સંસાર vs સિદ્ધશિલા) */
+    .flipper-section {
+      background: var(--surface-container);
+      border: var(--warm-hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+    }
+    .flipper-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+    .shift-card {
+      background: var(--surface-card-pure);
+      border: var(--warm-hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      box-shadow: var(--soft-shadow);
+    }
+    .shift-card.is-awakened {
+      background: var(--tertiary-container);
+      border-color: var(--border-emerald);
+    }
+    .shift-tag {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--secondary);
+    }
+    .shift-card h3 {
+      font-family: var(--font-headline);
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    .shift-desc {
+      margin: 0;
+      font-size: 0.96rem;
+      color: var(--on-surface-variant);
+      flex: 1;
+    }
+    .shift-card.is-awakened .shift-desc {
+      color: var(--on-tertiary-container);
+    }
+
+    /* Day Band & Session Chapters */
+    .day-banner {
+      margin-top: var(--space-xl);
+      padding: var(--space-lg) var(--space-xl);
+      border-radius: var(--rounded-lg);
+      background: var(--surface-container);
+      border: var(--warm-hairline);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .day-banner h2 {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      margin: var(--space-xs) 0 0 0;
+      color: var(--on-surface);
+    }
+    .day-banner p {
+      margin: var(--space-xs) 0 0 0;
+      color: var(--on-surface-variant);
+      max-width: 60ch;
+    }
+
+    .session-article {
+      background: var(--surface-card-pure);
+      border: var(--warm-hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--soft-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      scroll-margin-top: var(--space-lg);
+    }
+    .session-header {
+      border-bottom: var(--warm-hairline);
+      padding-bottom: var(--space-md);
+    }
+    .session-top-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+    .session-title {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 700;
+      margin: 0 0 var(--space-xs) 0;
+      line-height: 1.25;
+      color: var(--on-surface);
+    }
+    .session-subtitle {
+      font-size: var(--subhead-size);
+      font-weight: 600;
+      color: var(--primary);
+      margin: 0;
+    }
+
+    .session-body-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .prose-block p {
+      margin: 0 0 var(--space-md) 0;
+      max-width: 65ch;
+    }
+    .prose-block p:last-child {
+      margin-bottom: 0;
+    }
+    .quote-callout {
+      background: var(--primary-container);
+      border-left: 4px solid var(--primary);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: 0 var(--rounded) var(--rounded) 0;
+      margin-block: var(--space-md);
+      font-family: var(--font-headline);
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--on-primary-container);
+    }
+    .bhajan-callout {
+      background: var(--secondary-container);
+      border-left: 4px solid var(--secondary);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: 0 var(--rounded) var(--rounded) 0;
+      color: var(--on-secondary-container);
+      font-size: 0.98rem;
+    }
+    .bhajan-callout strong {
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    /* 5 Sutras Interactive Checklist Panel */
+    .sutras-panel {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+    .sutras-panel h3 {
+      font-family: var(--font-headline);
+      font-size: 1.2rem;
+      margin: 0 0 var(--space-sm) 0;
+      color: var(--on-surface);
+    }
+    .sutras-hint {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      margin: 0 0 var(--space-md) 0;
+    }
+    .sutra-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .sutra-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      background: var(--surface-card-pure);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      transition: background-color var(--dur-micro) var(--ease-in-out);
+    }
+    .sutra-item.is-checked {
+      background: var(--tertiary-container);
+      border-color: var(--border-emerald);
+    }
+    .sutra-check-btn {
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline);
+      background: var(--background);
+      color: var(--on-surface);
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .sutra-item.is-checked .sutra-check-btn {
+      background: var(--tertiary);
+      color: var(--on-tertiary);
+      border-color: var(--tertiary);
+    }
+    .sutra-text-wrap {
+      padding-top: var(--space-xs);
+    }
+    .sutra-title {
+      font-weight: 700;
+      color: var(--on-surface);
+      display: block;
+    }
+    .sutra-meaning {
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+      display: block;
+      margin-top: var(--space-xs);
+    }
+
+    /* Interactive Parable & Story Cards */
+    .stories-block-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+    }
+    .stories-block-header h3 {
+      font-family: var(--font-headline);
+      font-size: 1.25rem;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .story-card {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      transition: box-shadow var(--dur-short) var(--ease-out);
+    }
+    .story-card:hover {
+      box-shadow: var(--soft-shadow-raised);
+    }
+    .story-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+    .story-card h4 {
+      font-family: var(--font-headline);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .story-body {
+      margin: 0;
+      font-size: 0.96rem;
+      color: var(--on-surface-variant);
+      line-height: 1.65;
+    }
+    .moral-box {
+      margin-top: var(--space-xs);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--primary-container);
+      border-radius: var(--rounded);
+      border-left: 3px solid var(--primary);
+      color: var(--on-primary-container);
+      font-size: 0.93rem;
+      font-weight: 600;
+      display: none;
+    }
+    .moral-box.is-open {
+      display: block;
+    }
+    .story-actions {
+      margin-top: auto;
+      padding-top: var(--space-xs);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .moral-toggle-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      border: 1px solid var(--border-terracotta);
+      background: var(--surface-card-pure);
+      color: var(--on-primary-container);
+      font-weight: 700;
+      font-size: var(--label-size);
+      cursor: pointer;
+    }
+    .moral-toggle-btn:hover {
+      background: var(--primary-container);
+    }
+    .moral-toggle-btn[aria-expanded="true"] {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Parable Directory / Filterable Index */
+    .katha-index-section {
+      background: var(--surface-container-low);
+      border: var(--warm-hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+    }
+    .katha-index-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+    .katha-index-card {
+      background: var(--surface-card-pure);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .katha-index-card.is-hidden-theme {
+      display: none;
+    }
+    .katha-index-card h4 {
+      font-family: var(--font-headline);
+      margin: 0;
+      font-size: 1.05rem;
+    }
+    .katha-index-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Personal Sadhana Journal & Export */
+    .journal-section {
+      background: var(--surface-card-pure);
+      border: 1px solid var(--border-brass);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--soft-shadow);
+    }
+    .journal-form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      margin-top: var(--space-md);
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-label {
+      font-weight: 700;
+      font-size: var(--label-size);
+      color: var(--on-surface);
+    }
+    .field-input, .field-textarea, .field-select {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      min-height: 44px;
+      width: 100%;
+    }
+    .field-select {
+      padding-right: var(--space-xl);
+    }
+    .field-textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+    .field-input:focus, .field-textarea:focus, .field-select:focus {
+      border-color: var(--primary);
+      outline: 2px solid var(--primary);
+      outline-offset: 1px;
+    }
+    .saved-entries-list {
+      margin-top: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .saved-entry-card {
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+    .inline-status-msg {
+      min-height: 1.5rem;
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--tertiary);
+      margin-top: var(--space-sm);
+    }
+
+    /* Footer */
+    .magazine-footer {
+      border-top: var(--warm-hairline);
+      padding-block: var(--space-xl);
+      text-align: center;
+      color: var(--on-surface-variant);
+      font-size: 0.92rem;
+    }
+
+    /* Utility buttons */
+    .btn-primary {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded-full);
+      border: none;
+      background: var(--primary);
+      color: var(--on-primary);
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded-full);
+      border: 1px solid var(--border-btn-secondary);
+      background: transparent;
+      color: var(--on-surface);
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      text-decoration: none;
+    }
+    .btn-secondary:hover { background: var(--surface-container); }
+
+    /* Responsive Rules */
+    @media (max-width: 860px) {
+      .session-body-grid,
+      .meditation-grid,
+      .journal-form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-lg);
+      }
+      .session-article,
+      .meditation-studio,
+      .flipper-section,
+      .katha-index-section,
+      .journal-section {
+        padding: var(--space-lg);
+      }
+      .masthead {
+        padding-block: var(--space-xl) var(--space-lg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Masthead (Static header) -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="kicker-row">
+        <span class="badge-terracotta">બાલોતરા મૌન સાધના શિબિર (૦૧ થી ૦૪ ઓક્ટોબર ૨૦૨૬)</span>
+        <span class="badge-emerald">૪ દિવસ · ૧૨ સત્રો · આધ્યાત્મિક ડિજિટલ પુસ્તિકા</span>
+      </div>
+
+      <h1 class="title"><em>જીવન એક સિદ્ધશિલા</em></h1>
+      <p class="hero-lede">
+        આ જીવન માત્ર ખાવા, પીવા કે સંયોગો ગોઠવવાનું સાધન નથી — તે ભીતર બિરાજમાન પરમાત્માને સ્પર્શવાની અવસરભૂમિ છે. બાલોતરા શિબિરનાં ૧૨ સત્રોમાં ગૂંથાયેલાં ૬૦ સૂત્રો, ૨૩ પ્રેરક બોધકથાઓ અને ધ્યાન પ્રયોગોની સરળ ગુજરાતીમાં ભાવયાત્રા.
+      </p>
+
+      <div class="btn-row" style="justify-content: center;">
+        <a href="#sadhana-atlas" class="btn-primary">૧૨ સત્રોની યાત્રા શરૂ કરો</a>
+        <a href="#kalpana-chhed" class="btn-secondary">કલ્પના-છેદ ધ્યાન પ્રયોગ</a>
+        <a href="#katha-kosh" class="btn-secondary">બોધકથા સંગ્રહ</a>
+      </div>
+
+      <div class="ornament-rule" aria-hidden="true">◆ ચાર દિવસની અંતર-યાત્રા ◆</div>
+
+      <div class="summary-arch-grid">
+        <div class="arch-card is-featured">
+          <div class="arch-label">મુખ્ય જીવન-સૂત્ર</div>
+          <div class="arch-figure">૧૨</div>
+          <div class="arch-caption">સજાગથી સુખી જીવન સુધીનાં સોપાનો</div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-label">પ્રેરક દૃષ્ટાંતો</div>
+          <div class="arch-figure">૨૩</div>
+          <div class="arch-caption">ભ્રમ તોડનારી બોધકથાઓ</div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-label">તમારો સાધના અભ્યાસ</div>
+          <div class="arch-figure" id="metric-sutras-checked">૦ / ૬૦</div>
+          <div class="arch-caption">જીવનમાં ઉતારેલાં સૂત્રો</div>
+        </div>
+        <div class="arch-card">
+          <div class="arch-label">સહજ ધ્યાન સાધના</div>
+          <div class="arch-figure">૭ પગલાં</div>
+          <div class="arch-caption">આકારથી નિરાકારની સફર</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+
+    <!-- 12-Session Atlas & Chapter Navigation -->
+    <nav class="chapter-nav" id="sadhana-atlas" aria-label="૧૨ સત્રોનું અધ્યાય ચક્ર">
+      <div class="nav-header-row">
+        <div>
+          <h2 class="nav-heading">સિદ્ધશિલા સત્ર-સૂચિ: કોઈ પણ દિવસ કે સત્ર પસંદ કરો</h2>
+        </div>
+        <div class="day-filter-pills" role="group" aria-label="દિવસ મુજબ સત્રો ફિલ્ટર કરો">
+          <button type="button" class="pill-btn is-active" onclick="filterAtlasDay('all', this)">બધા ૪ દિવસ (૧૨)</button>
+          <button type="button" class="pill-btn" onclick="filterAtlasDay('1', this)">દિવસ ૧ (સત્ર ૧–૩)</button>
+          <button type="button" class="pill-btn" onclick="filterAtlasDay('2', this)">દિવસ ૨ (સત્ર ૪–૬)</button>
+          <button type="button" class="pill-btn" onclick="filterAtlasDay('3', this)">દિવસ ૩ (સત્ર ૭–૯)</button>
+          <button type="button" class="pill-btn" onclick="filterAtlasDay('4', this)">દિવસ ૪ (સત્ર ૧૦–૧૨)</button>
+        </div>
+      </div>
+
+      <div class="atlas-grid" id="atlas-grid"></div>
+
+      <div class="atlas-preview" id="atlas-preview" aria-live="polite">
+        <div class="atlas-preview-text">
+          <h3 id="preview-title">સત્ર ૧: સજાગ જીવન — જાગરણનું પ્રથમ સોપાન</h3>
+          <p id="preview-summary">જે નથી તે દેખાવું એ ઊંઘ છે અને જે છે તે દેખાવું એ સજાગતા છે. સંયોગના પરાધીન સુખને બદલે સ્થિતિનું સ્વાધીન સુખ પામવાનો આરંભ.</p>
+        </div>
+        <a href="#session-1" id="preview-jump-link" class="btn-primary">આ સત્ર વાંચો ↓</a>
+      </div>
+    </nav>
+
+    <!-- Interactive Anchor 1: Kalpana-Chhed Guided Meditation (Satra 2) -->
+    <section class="meditation-studio" id="kalpana-chhed" aria-labelledby="meditation-heading">
+      <div class="studio-header">
+        <span class="badge-emerald">દિવસ ૧ · સત્ર ૨ નો વિશેષ ધ્યાન પ્રયોગ</span>
+        <h2 id="meditation-heading">કલ્પના-છેદ ધ્યાન: કલ્પનાથી કલ્પનાને કાપવાની યાત્રા</h2>
+        <p>
+          ગુરુદેવ દ્વારા કરાવાયેલો આ પ્રયોગ તમને સ્થૂળ ઘર અને શરીરની ઓળખથી મુક્ત કરી, વિચારોના વિરામ પછી માત્ર શુદ્ધ, નિરાકાર "હોવા" (Being) માં સ્થિર કરે છે. દરેક પગલે આકૃતિમાં બહારના આવરણો કેવી રીતે વિલીન થાય છે તે અનુભવો.
+        </p>
+      </div>
+
+      <div class="meditation-grid">
+        <div class="mandala-stage">
+          <svg class="mandala-svg" viewBox="0 0 300 300" role="img" aria-label="કલ્પના-છેદ ધ્યાન મંડળ: સાત આવરણોનો વિલય" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="150" cy="150" r="138" fill="var(--surface-container-low)" stroke="var(--outline-variant)" stroke-width="1.5"/>
+            <!-- Ring 1: ઘર અને સાધનો -->
+            <circle id="ring-1" class="mandala-ring" cx="150" cy="150" r="126" fill="none" stroke="var(--secondary)" stroke-width="8" stroke-dasharray="10 6"/>
+            <!-- Ring 2: પરિવાર અને સંબંધી -->
+            <circle id="ring-2" class="mandala-ring" cx="150" cy="150" r="106" fill="none" stroke="var(--primary)" stroke-width="8" stroke-dasharray="16 5"/>
+            <!-- Ring 3: દેવ વિમાન -->
+            <circle id="ring-3" class="mandala-ring" cx="150" cy="150" r="86" fill="none" stroke="var(--data-3)" stroke-width="7"/>
+            <!-- Ring 4: દેવનો સંગ -->
+            <circle id="ring-4" class="mandala-ring" cx="150" cy="150" r="68" fill="none" stroke="var(--rose)" stroke-width="7" stroke-dasharray="6 6"/>
+            <!-- Ring 5: સ્થૂળ શરીર -->
+            <circle id="ring-5" class="mandala-ring" cx="150" cy="150" r="50" fill="none" stroke="var(--on-surface-variant)" stroke-width="6"/>
+            <!-- Ring 6: મન અને વિચાર -->
+            <circle id="ring-6" class="mandala-ring" cx="150" cy="150" r="34" fill="var(--primary-container)" stroke="var(--primary)" stroke-width="3"/>
+            <!-- Core 7: શુદ્ધ હોવું (Being) -->
+            <circle cx="150" cy="150" r="20" fill="var(--tertiary)"/>
+            <text x="150" y="154" text-anchor="middle" fill="var(--on-tertiary)" font-size="11" font-weight="700">શુદ્ધ સ્વ</text>
+          </svg>
+          <p id="mandala-caption" style="margin: var(--space-sm) 0 0 0; font-size: var(--label-size); font-weight: 700; color: var(--on-surface-variant); text-align: center;">
+            ચરણ ૧ / ૭: બધાં બાહ્ય આવરણો ઉપસ્થિત છે
+          </p>
+        </div>
+
+        <div class="meditation-controls">
+          <div class="step-pills-row" role="group" aria-label="ધ્યાન ચરણ પસંદ કરો">
+            <button type="button" class="step-dot-btn is-active" onclick="setMeditationStep(0)">૧</button>
+            <button type="button" class="step-dot-btn" onclick="setMeditationStep(1)">૨</button>
+            <button type="button" class="step-dot-btn" onclick="setMeditationStep(2)">૩</button>
+            <button type="button" class="step-dot-btn" onclick="setMeditationStep(3)">૪</button>
+            <button type="button" class="step-dot-btn" onclick="setMeditationStep(4)">૫</button>
+            <button type="button" class="step-dot-btn" onclick="setMeditationStep(5)">૬</button>
+            <button type="button" class="step-dot-btn" onclick="setMeditationStep(6)">૭</button>
+          </div>
+
+          <div class="meditation-card" aria-live="polite">
+            <h3 id="med-step-title">ચરણ ૧: ઘર અને સાધન-સામગ્રીનું નિરીક્ષણ</h3>
+            <p id="med-step-desc">તમે તમારા ઘર કે બંગલામાં બેઠા છો. ચારે બાજુ કબાટ, શોકેસ, ટીવી, મોબાઈલ અને ભૌતિક સુવિધાઓ ગોઠવાયેલી છે. કશામાં અટક્યા વગર માત્ર સાક્ષીભાવે જુઓ કે આ બધું પોતપોતાની જગ્યાએ પડ્યું છે.</p>
+            <div class="meditation-essence" id="med-step-essence">
+              મર્મ: સાધનો બહાર છે, હું અંદર છું.
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn-secondary" onclick="stepMeditation(-1)">← પાછલું ચરણ</button>
+            <button type="button" class="btn-primary" onclick="stepMeditation(1)">આગળનું ચરણ →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Anchor 2: Perspective Flipper -->
+    <section class="flipper-section" aria-labelledby="flipper-heading">
+      <div class="nav-header-row" style="margin-bottom: var(--space-sm);">
+        <div>
+          <span class="badge-brass">દૃષ્ટિ પરિવર્તન</span>
+          <h2 id="flipper-heading" style="font-family: var(--font-headline); font-size: var(--headline-size); margin: var(--space-xs) 0 0 0;">સંસારની દૃષ્ટિ vs સિદ્ધશિલાની દૃષ્ટિ</h2>
+        </div>
+        <button type="button" class="pill-btn pill-btn-emerald" id="flip-all-btn" onclick="toggleAllShifts()">બધાં કાર્ડ જાગૃત દૃષ્ટિમાં ફેરવો</button>
+      </div>
+      <p style="margin: 0; max-width: 65ch; color: var(--on-surface-variant);">
+        દરેક કાર્ડ પર ક્લિક કરીને જુઓ કે આપણે અજ્ઞાનમાં શું માની બેઠા છીએ અને પરમાત્માની વાણીમાં સત્ય શું છે.
+      </p>
+
+      <div class="flipper-grid" id="flipper-grid"></div>
+    </section>
+
+    <!-- All 12 Sessions Narrative Container -->
+    <div id="sessions-container"></div>
+
+    <!-- Filterable Story & Parable Explorer -->
+    <section class="katha-index-section" id="katha-kosh" aria-labelledby="katha-heading">
+      <div class="nav-header-row">
+        <div>
+          <span class="badge-rose">૨૩ પ્રેરક બોધકથાઓ</span>
+          <h2 id="katha-heading" style="font-family: var(--font-headline); font-size: var(--headline-size); margin: var(--space-xs) 0 0 0;">બાલોતરા શિબિર કથા-કોષ</h2>
+        </div>
+        <div class="day-filter-pills" role="group" aria-label="વિષય મુજબ કથા ફિલ્ટર કરો">
+          <button type="button" class="pill-btn is-active" onclick="filterKathaTheme('all', this)">બધી કથાઓ (૨૩)</button>
+          <button type="button" class="pill-btn" onclick="filterKathaTheme('જાગરણ', this)">જાગરણ અને ભ્રમ</button>
+          <button type="button" class="pill-btn" onclick="filterKathaTheme('સમર્પણ', this)">સમર્પણ અને શૂન્યતા</button>
+          <button type="button" class="pill-btn" onclick="filterKathaTheme('સાધના', this)">સાધના અને મંઝિલ</button>
+          <button type="button" class="pill-btn" onclick="filterKathaTheme('સાક્ષી', this)">સાક્ષી અને સ્વીકાર</button>
+        </div>
+      </div>
+      <p style="margin: 0; max-width: 65ch; color: var(--on-surface-variant);">
+        કોઈ પણ કથાના કાર્ડ પર ક્લિક કરી સીધા તે સત્રમાં પહોંચી શકો છો અને તેનો ગૂઢ મર્મ વાંચી શકો છો.
+      </p>
+      <div class="katha-index-grid" id="katha-index-grid"></div>
+    </section>
+
+    <!-- Personal Sadhana Reflection Journal & Export -->
+    <section class="journal-section" id="sadhana-diary" aria-labelledby="diary-heading">
+      <span class="badge-terracotta">દૈનિક આત્મ-નિરીક્ષણ</span>
+      <h2 id="diary-heading" style="font-family: var(--font-headline); font-size: var(--headline-size); margin: var(--space-xs) 0 var(--space-sm) 0;">મારી સાધના ડાયરી અને સંકલ્પ</h2>
+      <p style="margin: 0; max-width: 65ch; color: var(--on-surface-variant);">
+        શિબિરનાં કયા સૂત્ર કે કથાએ તમારા હૃદયને સ્પર્શ કર્યો? તમારો દૈનિક અનુભવ ("આમાં આનંદઘનને શું?" કે "Now &amp; Here") અહીં નોંધો અને સાચવો.
+      </p>
+
+      <div class="journal-form-grid">
+        <div class="field-group">
+          <label class="field-label" for="diary-session-select">કયું સત્ર / સૂત્ર સ્પર્શ્યું?</label>
+          <select id="diary-session-select" class="field-select">
+            <option value="સત્ર ૧: સજાગ જીવન (Now & Here)">સત્ર ૧: સજાગ જીવન (Now &amp; Here)</option>
+            <option value="સત્ર ૨: સરળ જીવન (આકારથી પાર)">સત્ર ૨: સરળ જીવન (આકારથી પાર)</option>
+            <option value="સત્ર ૩: સંવેગી જીવન (સ્થાયી કંઈ નથી)">સત્ર ૩: સંવેગી જીવન (સ્થાયી કંઈ નથી)</option>
+            <option value="સત્ર ૪: સમર્પણ જીવન (શૂન્યતાની ઉપાસના)">સત્ર ૪: સમર્પણ જીવન (શૂન્યતાની ઉપાસના)</option>
+            <option value="સત્ર ૫: સ્વાનુભૂતિ જીવન (આમાં આનંદઘનને શું?)">સત્ર ૫: સ્વાનુભૂતિ જીવન (આમાં આનંદઘનને શું?)</option>
+            <option value="સત્ર ૬: સાધક જીવન (દેવું છે, લેવું નથી)">સત્ર ૬: સાધક જીવન (દેવું છે, લેવું નથી)</option>
+            <option value="સત્ર ૭: સાધ્ય જીવન (મંદિર નહીં, મંઝિલ જુઓ)">સત્ર ૭: સાધ્ય જીવન (મંદિર નહીં, મંઝિલ જુઓ)</option>
+            <option value="સત્ર ૮: સામ્ય જીવન (અનેકમાં એકની ઓળખ)">સત્ર ૮: સામ્ય જીવન (અનેકમાં એકની ઓળખ)</option>
+            <option value="સત્ર ૯: સ્વીકાર જીવન (તાત્ત્વિક અલિપ્તતા)">સત્ર ૯: સ્વીકાર જીવન (તાત્ત્વિક અલિપ્તતા)</option>
+            <option value="સત્ર ૧૦: સ્પર્શ જીવન (અનન્ય ભક્તિ ધારા)">સત્ર ૧૦: સ્પર્શ જીવન (અનન્ય ભક્તિ ધારા)</option>
+            <option value="સત્ર ૧૧: સાક્ષી જીવન (નટ, પટ અને તટ કલા)">સત્ર ૧૧: સાક્ષી જીવન (નટ, પટ અને તટ કલા)</option>
+            <option value="સત્ર ૧૨: સુખી જીવન (મૌજ, તૃપ્તિ અને સ્વાદ)">સત્ર ૧૨: સુખી જીવન (મૌજ, તૃપ્તિ અને સ્વાદ)</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="diary-practice-input">આજનો મુખ્ય સંકલ્પ (ટૂંકમાં)</label>
+          <input id="diary-practice-input" type="text" class="field-input" placeholder="દા.ત. આજે ભોજન સમયે માત્ર પ્રસાદ ભાવ રાખીશ">
+        </div>
+      </div>
+
+      <div class="field-group" style="margin-top: var(--space-md);">
+        <label class="field-label" for="diary-note-textarea">મારો અંતર-અનુભવ કે ચિંતન</label>
+        <textarea id="diary-note-textarea" class="field-textarea" placeholder="આ સત્ર સાંભળતી કે વાંચતી વખતે ભીતર શું બદલાવ અનુભવાયો તે લખો..."></textarea>
+      </div>
+
+      <div class="btn-row" style="margin-top: var(--space-md);">
+        <button type="button" class="btn-primary" onclick="saveDiaryEntry()">સાધના નોંધ સાચવો</button>
+        <button type="button" class="btn-secondary" onclick="exportSadhanaSummary()">મારો સાધના સારાંશ ડાઉનલોડ કરો (.txt)</button>
+        <button type="button" class="btn-secondary" id="reset-state-btn" onclick="resetAllProgress(this)">બધી પ્રગતિ રીસેટ કરો</button>
+      </div>
+
+      <div class="inline-status-msg" id="diary-status-msg" aria-live="polite"></div>
+      <div class="saved-entries-list" id="saved-entries-list"></div>
+    </section>
+
+    <footer class="magazine-footer">
+      <div class="ornament-rule" aria-hidden="true">◆ મિચ્છામિ દુક્કડમ્ · સર્વ મંગલમ્ ◆</div>
+      <p style="margin: 0 0 var(--space-xs) 0;">
+        <strong>સ્રોત:</strong> બાલોતરા આધ્યાત્મિક મૌન સાધના શિબિર (૦૧ ઓક્ટોબર થી ૦૪ ઓક્ટોબર ૨૦૨૬) નાં ૧૨ પ્રવચન-ધ્યાન સત્રો પર આધારિત સરળ ગુજરાતી સંકલન.
+      </p>
+      <p style="margin: 0; font-size: var(--label-size);">
+        જિનાજ્ઞા વિરુદ્ધ કંઈ પણ લખાયું હોય તો તસ્સ મિચ્છામિ દુક્કડમ્.
+      </p>
+    </footer>
+
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    // --- Grounded Source Data (All 12 Sessions, 60 Sutras, 23 Stories) ---
+    const SESSIONS_DATA = [
+      {
+        id: 1,
+        day: `1`,
+        dayLabel: `દિવસ ૧ · સત્ર ૧`,
+        timeLabel: `સવાર (૦૧-૧૦-૨૦૨૬)`,
+        title: `સજાગ જીવન`,
+        subtitle: `જાગરણનું પ્રથમ સોપાન — ઊંઘમાંથી હોશમાં આવવું`,
+        badgeClass: `badge-terracotta`,
+        summary: `જે નથી તે દેખાવું એ ઊંઘ છે અને જે છે તે દેખાવું એ સજાગતા છે. સંયોગના પરાધીન સુખને બદલે સ્થિતિનું સ્વાધીન સુખ પામવાનો આરંભ.`,
+        prose: [
+          `ચાર દિવસ માટે દેશ, રાજ્ય, ગામ, ઘર, દુકાન અને ખુદની ઓળખ પણ વિસર્જિત કરી પરમાત્માના કુળમાં પ્રવેશ કરવાનો આ અવસર છે. શાસ્ત્રોમાં જીવન પ્રેમ, મૈત્રી અને આનંદથી ભરેલું હોવાનું કહ્યું છે; હવે તે માત્ર પુસ્તકોનાં પાનાંમાં નહીં, પણ હૃદયમાં ઉતારવાનું છે. આ યાત્રાના બાહ્ય સ્તંભો છે — <strong>આર્ય મૌન</strong> (મનમાં કોઈ અભિપ્રાય કે ફરિયાદ ન જન્મે) અને <strong>ઈર્યા સમિતિ</strong> (દરેક ડગલે પૂરી જાગૃતિ).`,
+          `સુખ બે પ્રકારનું હોય છે: એક છે <em>સંયોગનું સુખ</em> (જે બહારથી મળે, હિસાબ-કિતાબ માંગે અને પરાધીન હોય) અને બીજું છે <em>સ્થિતિનું સુખ</em> (જે આપણા પોતાના હોવામાં જ પ્રગટેલું છે, સ્વાધીન અને અકારણ છે). જ્યાં સુધી સુખ બહાર શોધીશું ત્યાં સુધી દુઃખ નિશ્ચિત છે, કારણ કે સંસાર શ્રદ્ધા અને માન્યતાથી ચાલે છે, જ્યારે ધર્મ અનુભવથી ચાલે છે.`
+        ],
+        quote: `«તમારું જીવન સમાજનું કોઈ માળખું કે માત્ર લેવડદેવડ નથી — જીવન એક સિદ્ધશિલા છે!»`,
+        bhajan: `આધ્યાત્મિક પદ: "ઉઠ જાગ મુસાફિર ભોર ભઈ, અબ રૈન કહાં જો સોવત હૈ; જો સોવત હૈ સો ખોવત હૈ, જો જાગત હૈ સો પાવત હૈ."`,
+        practice: `દિનચર્યા અભ્યાસ: Now & Here (અહીં અને અત્યારે) — ખાતી વખતે કોળિયામાં, ચાલતી વખતે પગલામાં અને બેસીને બેસવામાં જ રહેવું. કાળ અને દેશના સંકોચનથી મનને વિશ્રામ મળે છે.`,
+        sutrasTitle: `જાગરણનાં ૫ પ્રશ્ન-સૂત્રો`,
+        sutras: [
+          { title: `૧. સુખ ક્યાં? શોધ ક્યાં?`, meaning: `સુખ ભીતરની અવસ્થા છે, પણ આપણે તેને બહારના સાધનો અને વ્યક્તિઓમાં શોધીએ છીએ.` },
+          { title: `૨. સમસ્યા ક્યાં? સમાધાન ક્યાં?`, meaning: `સમસ્યા ભીતરના "હું અને મારા" પણામાં છે, પણ ઉપાય આપણે બહારના ફેરફારમાં કરીએ છીએ.` },
+          { title: `૩. સપનાં ક્યાં? સમય ક્યાં?`, meaning: `યોજનાઓ અને તૃષ્ણાઓ અનંત છે, જ્યારે હાથમાં રહેલું આયુષ્ય અને આ ક્ષણ અત્યંત મર્યાદિત છે.` },
+          { title: `૪. સંકેત ક્યાં? સ્વાભિપ્રાય ક્યાં?`, meaning: `જ્ઞાની પુરુષો ભીતર નિજમાં ફરવાનો સંકેત આપે છે, પણ આપણે મનમાનીથી નિમિત્તને જ બદલવા મથીએ છીએ.` },
+          { title: `૫. સંયોગ ક્યાં? સ્વભાવ ક્યાં?`, meaning: `અનંત વાર તીર્થંકર અને જિનવાણી મળવા છતાં આપણી દૃષ્ટિ અને સ્વભાવ ન બદલાયાં તો બધું વ્યર્થ ગયું.` }
+        ],
+        stories: [
+          {
+            id: `s1-1`,
+            theme: `જાગરણ`,
+            title: `ઘરમાં આગ અને ઊંઘતો માણસ`,
+            body: `એક ઘરમાં ચારે બાજુથી આગ લાગી. બધા જીવ બચાવવા ભાગી ગયા, પણ એક માણસ ઊંઘતો રહ્યો. કોઈએ કરુણાથી જગાડ્યો કે "આગ લાગી છે, ભાગો!" તે આળસ મરડીને બોલ્યો: "મને ખબર છે આગ લાગી છે, અને ભાગવું જોઈએ એ પણ મને ખબર છે!" છતાં ઊભો ન થયો.`,
+            moral: `મર્મ: માત્ર બુદ્ધિથી જાણી લેવું (જેમ કે "મોક્ષે જવું છે") એ જાગવું નથી. જે જાણેલું છે તેને જીવનમાં જીવવું એ જ સાચું જાગરણ છે.`
+          },
+          {
+            id: `s1-2`,
+            theme: `જાગરણ`,
+            title: `બિલાડી, દર અને દારૂની બોટલમાં ભરાયેલો ઉંદર`,
+            body: `બે ઉંદરો પાછળ બિલાડી પડી. એક હોશિયાર ઉંદર સીધો પોતાના દરમાં ઘૂસી સુરક્ષિત થઈ ગયો. બીજા ભ્રમિત ઉંદરે દર જેવું મોઢું સમજી બાજુમાં પડેલી દારૂની ખાલી બોટલમાં ઝંપલાવ્યું. અંદર વધેલો દારૂ પીને તે નશામાં ગર્જના કરવા લાગ્યો: "ક્યાં છે પેલી અધમ બિલાડી? હમણાં બતાવી દઉં!" અને નશામાં બહાર નીકળતાં જ પકડાઈ ગયો.`,
+            moral: `મર્મ: "દર" એટલે નિજ ઘર (આત્મા) અને "બોટલ" એટલે સમાજની દેખાદેખી, પૈસા, રૂપ અને સ્ટેટસનો નશો. નશામાંથી બહાર આવવું એ જ સજાગ જીવન.`
+          },
+          {
+            id: `s1-3`,
+            theme: `જાગરણ`,
+            title: `૧૦૦ આંધળા અને ચંદ્રનો આકાર`,
+            body: `એક માણસે કહ્યું કે ચંદ્ર ચોરસ છે. બીજાએ, ત્રીજાએ એમ સો લોકો ભેગા થઈ ગયા અને બહુમતીથી બોલ્યા કે ચંદ્ર ચોરસ જ છે! સામે એક જ વ્યક્તિ બોલતો હતો કે ચંદ્ર ગોળ છે. અહીં બહુમતી (૧૦૦ જણા) અંધ હતા અને એક જ માણસ આંખવાળો હતો.`,
+            moral: `મર્મ: લોકપ્રિય માન્યતા કે ભીડ જે કહે તેને સત્ય ન માની લેવું; પોતાના તર્ક અને અનુભવની આંખે સત્યને તપાસવું.`
+          },
+          {
+            id: `s1-4`,
+            theme: `જાગરણ`,
+            title: `રાજા અને મહેલની અગાસી પર સોય શોધતા સંત`,
+            body: `સુખની શોધમાં એક રાજાએ મંત્ર, યંત્ર અને તંત્ર બધું અજમાવ્યું પણ શાંતિ ન મળી. એક જ્ઞાની સંતે કહ્યું કે જવાબ અવસર પર આપીશ. એક દિવસ સંત રાજાના મહેલની અગાસી પર કંઈક શોધતા હતા. રાજાએ પૂછ્યું: "શું શોધો છો?" સંતે કહ્યું: "મારી સોય મારા આશ્રમમાં ખોવાઈ ગઈ છે!" રાજા હસ્યો: "ખોવાઈ આશ્રમમાં અને અહીં અગાસી પર કેમ શોધો છો?"`,
+            moral: `મર્મ: સંતે કહ્યું — જો રાજમહેલની બહારની વસ્તુઓમાં ભીતરનું સુખ મળી શકતું હોય, તો આશ્રમની સોય મહેલમાં કેમ ન મળે? જ્યાંથી ખોવાયા છો (ભીતર) ત્યાં જ શોધો!`
+          },
+          {
+            id: `s1-5`,
+            theme: `જાગરણ`,
+            title: `કૈન્સરનો દર્દી: છગનથી મગન`,
+            body: `ચોથા સ્ટેજના કૈન્સરનો એક દર્દી ડોક્ટર પાસે ગયો. તેણે કહ્યું: "મેં બધા ઉપાય કરી જોયા — પોશ એરિયામાં ઘર બદલ્યું, કપડાં બદલ્યાં, નવા મિત્રો બનાવ્યા, મારું નામ છગનમાંથી મગન રાખ્યું, છેલ્લે મુંડન પણ કરાવ્યું; છતાં રોગ કેમ ન મટ્યો?"`,
+            moral: `મર્મ: સ્થાન, વસ્ત્ર, નામ કે પરિવાર બદલવાથી ભીતરની પીડા નથી મટતી. સમસ્યા ભીતર "હું અને મારા"પણામાં છે, તો ઈલાજ પણ ભીતર જ કરવો પડે.`
+          },
+          {
+            id: `s1-6`,
+            theme: `જાગરણ`,
+            title: `૭ દિવસનું આયુષ્ય અને યોગી પુરુષ`,
+            body: `અત્યંત ક્રોધ, ઈર્ષ્યા અને ફરિયાદોથી ત્રસ્ત એક વ્યક્તિ સુખનો માર્ગ પૂછવા યોગી પાસે ગઈ. યોગીએ ગંભીરતાથી કહ્યું: "તારા આયુષ્યના માત્ર ૭ દિવસ જ બાકી છે!" મૃત્યુ સામે આવતાં જ એ વ્યક્તિની બધી તૃષ્ણા શાંત થઈ ગઈ, તેણે સૌની માફી માગી, સૌને પ્રેમ કર્યો અને સમતામાં આવી ગયો. ૭મા દિવસે પરિવારજનો તેને ગુરુ પાસે લાવ્યા ત્યારે ગુરુએ આશીર્વાદ આપી કહ્યું: "મેં જે મૃત્યુની વાત કરી હતી તે શરીરની નહીં, તારી દુષ્ટ માન્યતાઓના મૃત્યુની હતી!"`,
+            moral: `મર્મ: જ્યારે દેખાય કે હાથમાં સમય કેટલો ઓછો છે, ત્યારે સપનાં અને વેરભાવ આપોઆપ શાંત પડી જાય છે અને પુનર્જન્મ થાય છે.`
+          },
+          {
+            id: `s1-7`,
+            theme: `જાગરણ`,
+            title: `ફાનસને બદલે પોપટનું પિંજરું`,
+            body: `અંધારામાં પ્રવાસ કરવા નીકળેલા એક માણસે દુકાનદાર પાસેથી પ્રકાશ માટે ફાનસ માગ્યું. પ્રવાસમાં તે દીવાલ સાથે અથડાઈ ગટરમાં પડ્યો. સવારે ગુસ્સે થઈને દુકાનદારને ફરિયાદ કરી કે ફાનસ કામ ન લાગ્યું! દુકાનદારે હસીને કહ્યું: "મેં તો ફાનસ લેવા કહ્યું હતું, તમે ભૂલથી પોપટનું પિંજરું ઉપાડીને નીકળી પડ્યા હતા!"`,
+            moral: `મર્મ: જ્ઞાની ગુરુનો સંકેત ભીતર જવાનો હતો, પણ આપણે આપણા સ્વાભિપ્રાયથી કંઈક અલગ જ સમજીને ભટકી જઈએ છીએ.`
+          },
+          {
+            id: `s1-8`,
+            theme: `જાગરણ`,
+            title: `કાશી-હિમાલયની યાત્રા અને કડવી કાકડી`,
+            body: `તીર્થયાત્રાએ જતા શિષ્યોને ગુરુએ સાથે એક કડવી કાકડી આપતાં કહ્યું કે બધા તીર્થોમાં ફેરવી લાવજો. કાશી, બદ્રીનાથ અને હિમાલય ફરીને પાછા આવ્યા ત્યારે ગુરુએ એ કાકડીનું શાક બનાવવા કહ્યું. ખાતી વખતે તે એટલી જ કડવી લાગી!`,
+            moral: `મર્મ: જો કાકડી જેવો આપણો સ્વભાવ કડવો જ રહ્યો, તો ગમે તેટલા સંયોગો કે તીર્થો બદલીએ, જીવનમાં મીઠાશ આવતી નથી.`
+          }
+        ]
+      },
+      {
+        id: 2,
+        day: `1`,
+        dayLabel: `દિવસ ૧ · સત્ર ૨`,
+        timeLabel: `બપોર (૦૧-૧૦-૨૦૨૬)`,
+        title: `સરળ જીવન`,
+        subtitle: `ધ્યાન દ્વારા આકાર અને વ્યક્તિત્વનું વિસર્જન`,
+        badgeClass: `badge-terracotta`,
+        summary: `જેમ ખોરાક પચાવવો જરૂરી છે તેમ જ્ઞાનનું પાચન એ ધ્યાન છે. બનાવેલા "વ્યક્તિત્વ"ને ખોઈને કુદરતી "અસ્તિત્વ"માં આવવું એ જ સરળતા.`,
+        prose: [
+          `ધ્યાન એટલે વિચારવું કે ઊંઘી જવું નહીં; ધ્યાનના ત્રણ ક્રમિક ચરણ છે — <strong>છૂટવું, જાગવું અને હોવું (Being)</strong>. જે આજે છે અને કાલે નથી રહેવાનું એવા કૃત્રિમ રૂપને આજે જ ખોઈ નાખવું તે પહેલું પગલું છે.`,
+          `આપણી સૌથી મોટી વક્રતા છે <em>વ્યક્તિત્વ</em> અને <em>અસ્તિત્વ</em> વચ્ચેની ભેળસેળ. જે કુદરતી છે, શુદ્ધ ચૈતન્ય છે, તે આપણું અસ્તિત્વ છે. આપણે તેમાં પદ, પ્રતિષ્ઠા અને દેખાડાનાં આવરણો ઉમેરીને "વ્યક્તિત્વ" ઊભું કર્યું છે. સરળ થવાથી જીવનની ૯૦% બાધાઓ આપોઆપ સમાપ્ત થઈ જાય છે.`
+        ],
+        quote: `«વક્રતાથી સંસાર છે અને સરળતાથી મહામોક્ષ! પરમાત્મા તમને પામવા નથી, તમારી અંદરનાં આવરણો હટાવીને માત્ર ઊઘડવા દેવાના છે.»`,
+        bhajan: `કબીર પદ: "ઘટ ઘટ મેં પ્યાસો, તૂ પ્યાસો તન મઢ મેં; જાગ બિલો ઘટ મેં, તેરા સાંઈ તુઝ મેં, જૈસે તિલ મેં તેલ હૈ."`,
+        practice: `વિશેષ ધ્યાન પ્રયોગ: ઉપર આપેલા "કલ્પના-છેદ ધ્યાન" મંડળનો અભ્યાસ કરી બાહ્ય આધારો છોડી શુદ્ધ "હોવા"નો સ્વાદ ચાખો.`,
+        sutrasTitle: `આકારથી પાર થવાનાં ૫ સૂત્રો`,
+        sutras: [
+          { title: `૧. આકારથી પાર થઈ જાઓ`, meaning: `પોતાને શરીર કે કોઈ ચોક્કસ ફ્રેમના ચોકઠામાં બાંધી ન રાખો.` },
+          { title: `૨. પ્રતિભાવથી પાર થઈ જાઓ`, meaning: `સમાજ શું કહેશે કે લોકો તાળી પાડશે — એવા પ્રતિભાવની ભૂખ છોડો.` },
+          { title: `૩. પ્રતિકારથી પાર થઈ જાઓ`, meaning: `દરેક ઘટના સામે લડવાની કે વિરોધ કરવાની ટેવથી ઉપર ઊઠો.` },
+          { title: `૪. આગ્રહથી પાર થઈ જાઓ`, meaning: `"આમ જ થવું જોઈએ" એવી જીદ અને ગાંઠોને ઓગાળી દો.` },
+          { title: `૫. અસંગ-મૌનમાં સ્થિર થાઓ`, meaning: `વહેતી હવા અને ઊડતા પંખીની જેમ નિર્ભાર અને નિષ્પક્ષ પ્રવાહ બનો.` }
+        ],
+        stories: [
+          {
+            id: `s2-1`,
+            theme: `સમર્પણ`,
+            title: `બરફ અને પાણી`,
+            body: `બરફને પાણીમાં ભળવું હોય તો શું કરવું પડે? બરફ પોતે પાણી જ છે, પણ ટ્રેના ચોકઠામાં ઢળાઈને તેણે આકાર અને સીમા પકડી લીધી છે. તે પોતાની ટ્રે સિવાય બીજે ક્યાંય સેટ થઈ શકતો નથી. આકાર છૂટી જાય તો તે અનંત વહેતી ગંગા અને મહાસાગર બની જાય છે.`,
+            moral: `મર્મ: બરફને ટ્રેમાં અન્યે ઢાળ્યો, પણ આપણને માન્યતાની ફ્રેમમાં આપણે પોતે જ પૂર્યા છે! ફ્રેમ તોડો એટલે તમે જ મહાપ્રવાહ છો.`
+          },
+          {
+            id: `s2-2`,
+            theme: `સાધના`,
+            title: `પારસમણિ અને કપડાનાં ચીંથરાં`,
+            body: `એક શિષ્યે ગુરુ પાસે પારસમણિ માગ્યો. ગુરુએ એક ડબ્બી આપી જેમાં પારસમણિ હતો, પણ તેની ઉપર કપડાનાં નાના-નાના અનેક ચીંથરાં વીંટાળેલાં હતાં. જ્યાં સુધી વચ્ચેનાં આ આવરણો ન હટે ત્યાં સુધી લોઢાની ડબ્બી સોનું બની શકતી નહોતી. એક પછી એક પડ ખૂલતાં ગયાં અને છેલ્લે પારસમણિનો સીધો સ્પર્શ થતાં જ લોઢું સોનું બની ગયું!`,
+            moral: `મર્મ: તમારે ભગવાન બનવાની કોશિશ નથી કરવાની — તમે છો જ! માત્ર અહંકાર અને વિકલ્પોનાં ચીંથરાં હટાવવાનાં છે.`
+          },
+          {
+            id: `s2-3`,
+            theme: `સમર્પણ`,
+            title: `ગુરુના મૌન ઈશારા અને ચાર પ્રશ્નો`,
+            body: `એક જિજ્ઞાસુએ ગુરુને પૂછ્યું: (૧) સંસાર કેવી રીતે કપાય? ગુરુએ હાથથી નિષેધ/ચોકડીનો ઈશારો કર્યો. (૨) ઈશ્વર ક્યાં છે? ગુરુએ ચારે દિશાઓમાં જોયું. (૩) આ સત્યને પામવું કેવી રીતે? ગુરુએ પોતાના હોઠ પર આંગળી મૂકી મૌનનો સંકેત કર્યો.`,
+            moral: `મર્મ: ના પાડવાની શક્તિ (નિષેધ)થી સંસાર કપાય છે, પરમાત્મા કણકણમાં સર્વત્ર છે, અને તે ચૂપકીદી-મૌનમાં જ પ્રાપ્ત થાય છે.`
+          }
+        ]
+      },
+      {
+        id: 3,
+        day: `1`,
+        dayLabel: `દિવસ ૧ · સત્ર ૩`,
+        timeLabel: `સાંજ (૦૧-૧૦-૨૦૨૬)`,
+        title: `સંવેગી જીવન`,
+        subtitle: `અનિત્યતાનો બોધ — "હું"નું વિસર્જન અને વૈરાગ્ય`,
+        badgeClass: `badge-terracotta`,
+        summary: `સારો કે ખરાબ — એવા ટૅગ લગાડનાર "હું" જ મહાવીરનો સૌથી મોટો દુશ્મન છે. સ્ફટિકની જેમ શુદ્ધ આત્માને સંયોગોના રંગથી અલગ ઓળખવો.`,
+        prose: [
+          `આપણે દરેક ચીજને "સારી" કે "ખરાબ" કહી વિભાજિત કરીએ છીએ અને તેનાથી "હું" ને પુષ્ટિ મળે છે. જેટલું "હું" મજબૂત થાય છે તેટલો અવિભાજ્ય, નિરાકાર પરમાત્મા દૂર થતો જાય છે. ઘણાને ડર લાગે છે કે બધું છોડી દઈશું તો જીવન નીરસ અને શૂન્ય થઈ જશે; પરંતુ સત્ય એ છે કે તમે માત્ર ખાડો (શૂન્યતા) તૈયાર કરો, તેને પરમ આનંદથી ભરવાની જવાબદારી ભગવાનની છે!`,
+          `જેમ શુદ્ધ સ્ફટિક લાલ, કાળો કે લીલો નથી, તેમ આત્માનું સ્વરૂપ જ્ઞાન છે, શરીરનો રૂપ-રંગ કે ઉંમર નથી. આ પાંચ સૂત્રો ઘરમાં ઝઘડા કરવા માટે નથી, પણ ભીતર વૈરાગ્યની જ્વાળા જગાડી અસારમાંથી આસ્થા ઉઠાવી પરમાર્થમાં જોડવા માટે છે.`
+        ],
+        quote: `«તમે માત્ર વાદળાં હટાવી દો — સૂર્ય તો સ્વયં પોતાના પ્રકાશથી તમને ઘેરી જ લેશે!»`,
+        bhajan: `વૈરાગ્ય ગીત: "ચઢતા સૂરજ ધીરે ધીરે ઢલતા હૈ, ઢલ જાયેગા; તૂ યહાં મુસાફિર હૈ, યે સરાય ફાની હૈ" અને "જગત હૈ સ્વાર્થ કા સાથી, સમજ લે કૌન હૈ અપના."`,
+        practice: `દૃષ્ટિ અભ્યાસ: ચહેરા અને વ્યવહારની પાર જોવું — જે ઘટતું-વધતું રહે છે તે મારું મૂળ સત્ય ન હોઈ શકે.`,
+        sutrasTitle: `વૈરાગ્ય અને સંવેગનાં ૫ સૂત્રો`,
+        sutras: [
+          { title: `૧. સ્થાયી કંઈ નથી`, meaning: `આ પદ, પ્રતિષ્ઠા, યુવાની અને મિલકત — બધું જ ચઢતા સૂરજની જેમ ઢળી જનારું છે.` },
+          { title: `૨. સત્ય કંઈ નથી`, meaning: `"આ આગળ નીકળી ગયા ને હું પાછળ રહી ગયો" — એ બધી માત્ર મનની ઊભી કરેલી કલ્પનાઓ છે.` },
+          { title: `૩. માલિકી કંઈ નથી`, meaning: `ખાલી હાથે આવ્યા હતા અને ખાલી હાથે જવાનું છે; વચ્ચે કોઈ પરમાણુ પર આપણો કબજો નથી.` },
+          { title: `૪. સુખ કંઈ નથી`, meaning: `જ્યાં મોહ અને આશા જોડાયેલાં છે ત્યાં સુખ દેખાય છે, પણ અંતે તે દુઃખની જ પૂર્વવ્યવસ્થા છે.` },
+          { title: `૫. બાહ્ય આડંબર કંઈ નથી`, meaning: `પહેલાં જાગી જાઓ, ખોટી શ્રદ્ધા અને દોડ છોડી ભીતરના અચળ તત્ત્વ પ્રત્યે રુચિ કેળવો.` }
+        ],
+        stories: [
+          {
+            id: `s3-1`,
+            theme: `જાગરણ`,
+            title: `ઈશ્વર પાસે ન્યાય માગવા ગયેલો માણસ`,
+            body: `એક માણસ ભગવાન પાસે લડવા ગયો: "પ્રભુ! આ કેવો અન્યાય? મારા પડોશીને બંગલો, ગાડી, સુંદર પત્ની, હોશિયાર દીકરો અને સમાજમાં મોટો હોદ્દો આપ્યો, અને મને કંઈ નહીં?"`,
+            moral: `મર્મ: આપણે દુન્યવી વસ્તુઓને જ વિકાસ અને સુખ માની બેઠા છીએ. સાચું સુખ અને વિકાસ ચેતનાની શુદ્ધતામાં છે, પૈસા કે પદમાં નહીં.`
+          }
+        ]
+      },
+      {
+        id: 4,
+        day: `2`,
+        dayLabel: `દિવસ ૨ · સત્ર ૪`,
+        timeLabel: `સવાર (૦૨-૧૦-૨૦૨૬)`,
+        title: `સમર્પણ જીવન`,
+        subtitle: `શૂન્યતાની ઉપાસના — "હું" વિનાનું અસ્તિત્વ`,
+        badgeClass: `badge-emerald`,
+        summary: `પરમાત્માએ આપેલી જીવનરૂપી ચાદર દાગ વગર "જ્યોં કી ત્યોં" પાછી સોંપી દેવી. જ્યાં "હું" શૂન્ય થાય ત્યાં નિરાકાર પ્રગટે છે.`,
+        prose: [
+          `મંદિર કે સદ્ગુરુ પાસે જઈએ ત્યારે કોઈ માગણી કે માન્યતા લઈને નહીં, પણ એક શૂન્યતા બનીને જવું — માત્ર આભાર માનવા કે "હે પ્રભુ, તું મને મળી ગયો એટલું જ કાફી છે!" જ્યાં સુધી મનનું ચોખ્ખું ચાલું છે ત્યાં સુધી મહાવીરના ચોકના રંગ અનુભવી શકાતા નથી.`,
+          `ભોજન પણ જો તમારી યોજનાથી કરો તો તે <em>ભોગ</em> છે, પણ પરમાત્માનું સમજીને સ્વીકારો તો તે <em>પ્રસાદ</em> બની જાય છે. જ્યાં સુધી તમે શૂન્ય નહીં થાવ ત્યાં સુધી જેટલું સાંભળશો કે વાંચશો તે બધું અજીર્ણ થઈ જશે. જ્ઞાન માટે બુદ્ધિની ચાલાકી નહીં, શરણાગતિ જોઈએ.`
+        ],
+        quote: `«ઈન્દ્રભૂતિ ગૌતમ, ચંડકૌશિક અને બાહુબલિને પાંડિત્યથી નહીં, પરંતુ ક્ષણિક શૂન્યતા અને સમર્પણથી જ્ઞાન પ્રગટ્યું!»`,
+        bhajan: `કબીર વચન: "જ્યોં કી ત્યોં ધર દીની ચદરિયા..." — આ જીવન પ્રભુએ આપેલી અમાનત છે.`,
+        practice: `સમર્પણ અભ્યાસ: દિવસની નાની ક્રિયાઓ (ચાલવું, ખાવું, બોલવું) માં માલિકીભાવ છોડી નિમિત્ત-ભાવથી પ્રભુને અર્પણ કરવી.`,
+        sutrasTitle: `શૂન્યતાનાં ૫ મહાસૂત્રો`,
+        sutras: [
+          { title: `૧. ન જન રહે`, meaning: `મારી તૃષ્ણા કે ખાલીપો ભરવા માટે પરિવાર કે લોકોની અપેક્ષા ન રહે; સૌમાં માત્ર પ્રભુ દર્શન રહે.` },
+          { title: `૨. ન તન રહે`, meaning: `શરીર પર માલિકીભાવ ન રહે ("જયં ચરે, જયં ચિઠ્ઠે" — ચાલવું-બેસવું પણ પ્રભુના વચનથી).` },
+          { title: `૩. ન મન રહે`, meaning: `ઉન્મની ભાવ — પોતાના વિચારો ઘડવાને બદલે સદ્ગુરુ અને શાસ્ત્રના આપેલા વિચાર સ્વીકારવા.` },
+          { title: `૪. ન જ્ઞાન રહે`, meaning: `પંડિતાઈ કે જાણકાર હોવાનો ભાર ન રહે; માત્ર જિજ્ઞાસુ શિષ્ય બનીને ઝૂકવું.` },
+          { title: `૫. ન જાન રહે`, meaning: `પોતાની સ્વતંત્ર ઈચ્છા કે અહંકારનો રંચમાત્ર પણ અવશેષ ન રહે.` }
+        ],
+        stories: [
+          {
+            id: `s4-1`,
+            theme: `સમર્પણ`,
+            title: `ઈબ્રાહીમ અને તેમનો દાસ (સદ્ગુરુ)`,
+            body: `ઈબ્રાહીમને કોઈએ પૂછ્યું કે તમારું જીવન આટલું સુંદર કેવી રીતે બન્યું? તેમણે કહ્યું: "મારા દાસના પ્રતાપે!" તેમણે દાસને પૂછ્યું હતું: "તું શું ખાઈશ? શું પહેરીશ? ક્યાં રહીશ? તારી કોઈ ઈચ્છા?" દાસે નમ્રતાથી કહ્યું: "જે આપ આપો તે ખાઈશ, જે પહેરાવો તે પહેરીશ, જ્યાં રાખો ત્યાં રહીશ; દાસની પોતાની વળી શી ઈચ્છા!"`,
+            moral: `મર્મ: દાસની એ નિઃસ્પૃહ શૂન્યતા જોઈને ઈબ્રાહીમે તેને પોતાનો સદ્ગુરુ માની લીધો. જ્યાં ઈચ્છા શૂન્ય થાય ત્યાં પ્રભુ પ્રગટે છે.`
+          },
+          {
+            id: `s4-2`,
+            theme: `સમર્પણ`,
+            title: `અંધારા ભોંયરામાં ૨૧ દિવસના જાપ અને ૧૦,૦૦૦ આંબિલ`,
+            body: `એક સાધકને ગુરુએ અંધારા ભોંયરામાં ઉંદરોની વચ્ચે બેસી જાપ કરવાનો આદેશ આપ્યો. શરીર પર ઉંદરો ફરતા હોવા છતાં ગુરુના વચન ખાતર ૨૦-૨૧ દિવસ સુધી તેઓ હલ્યા પણ નહીં! ત્યારબાદ ગુરુની ભાવના મુજબ જીવનભર આંબિલ તપ (૧૦,૦૦૦થી વધુ આંબિલ) સ્વીકારી લીધું.`,
+            moral: `મર્મ: પોતાના દેહનો અધિકાર ગુરુ અને પરમાત્માને સોંપી દેવાથી અસાધ્ય લાગતી સાધના પણ સહજ બની જાય છે.`
+          },
+          {
+            id: `s4-3`,
+            theme: `સમર્પણ`,
+            title: `મુક્તિવલ્લભસૂરીજી અને ચૈત્યવલ્લભજી (ઓળી-આંબિલ)`,
+            body: `શિષ્યે ગુરુને પૂછ્યું કે આજે પખ્ખાળમાં શું તપ કરવું? ગુરુએ કહ્યું: "આજે ઓળી છે, તમારે આંબિલ કરવાનું છે — પણ તમારી રીતથી નહીં, અમારી રીતથી!"`,
+            moral: `મર્મ: તપ અને ક્રિયામાં પણ આપણો સ્વચ્છંદ કે આગ્રહ ન ચાલે; સમર્પણથી કરેલી નાની ક્રિયા પણ મોટી સાધના બને છે.`
+          },
+          {
+            id: `s4-4`,
+            theme: `સમર્પણ`,
+            title: `પંડિત નિદાઘ અને ઈન્દ્રભૂતિની શૂન્યતા`,
+            body: `વિદ્વાન પંડિત નિદાઘ શાસ્ત્રાર્થમાં નિપુણ હતો, પણ સત્ય પામી ન શક્યો. બીજી બાજુ ઈન્દ્રભૂતિ ગૌતમ પાસે અગાધ શાસ્ત્રજ્ઞાન હતું છતાં કામ ન લાગ્યું, પણ પ્રભુ સામે શૂન્ય થતાં માત્ર ત્રણ પદ (ઉપ્પન્નેઈ વા...)થી તેઓ ગણધર બની ગયા!`,
+            moral: `મર્મ: સમજવા માટે બુદ્ધિ કે પાંડિત્યની હોશિયારી નહીં, સદ્ગુરુનાં ચરણોમાં ઝૂકવાનો શૂન્ય ભાવ જોઈએ.`
+          }
+        ]
+      },
+      {
+        id: 5,
+        day: `2`,
+        dayLabel: `દિવસ ૨ · સત્ર ૫`,
+        timeLabel: `બપોર (૦૨-૧૦-૨૦૨૬)`,
+        title: `સ્વાનુભૂતિ જીવન`,
+        subtitle: `શિબિરનું હાર્દ — ચિદાકાશમાં પ્રવેશ અને પોતાને ચખવો`,
+        badgeClass: `badge-emerald`,
+        summary: `ધરતીને પકડી રાખીને આકાશને ચૂમી ન શકાય. આ પાંચમું સત્ર સમગ્ર શિબિરનું હૃદય છે: આગમ, અનુમાન અને યોગાભ્યાસરસથી ખુદને અનુભવવું.`,
+        prose: [
+          `આપણે સતત વ્યક્તિત્વનું શ્રવણ, મનન અને સ્મરણ કરીએ છીએ — લોકો મારા સ્ટેટસ વિશે શું બોલશે તેની ચિંતામાં રહીએ છીએ. હરિભદ્રસૂરીજીએ <em>યોગદૃષ્ટિસમુચ્ચય</em>માં ઉત્તમ તત્ત્વને પામવાના ત્રણ ચરણ આપ્યા છે: ૧) <strong>આગમ</strong> (શાસ્ત્રોથી જાણો કે હું શુદ્ધ ચૈતન્ય છું), ૨) <strong>અનુમાન</strong> (તર્ક-યુક્તિથી પૂછો કે શું હું છગનલાલ હોઈ શકું? હું તો પહેલાં પણ હતો ને પછી પણ રહીશ), અને ૩) <strong>અભ્યાસરસ</strong> (૬ મહિનાના ભૂખ્યા સામે ઘેવર આવે એવી અદમ્ય તાલાવેલી!).`,
+          `તમે તમારામાં અનુપસ્થિત રહો છો એટલે બીજે ક્યાંક (શરીર, સંબંધ, સામગ્રીમાં) ઉપસ્થિત થાઓ છો. સાધના અઘરી નથી — સાધના તો સરળ છે, આપણે અઘરા છીએ! માત્ર પરમાત્માના નિર્વિકલ્પ મૌનની નજીક (Nearness) આવવાનું છે.`
+        ],
+        quote: `«તમે ધરતીને પકડી રાખશો તો આકાશને ચૂમી નહીં શકો; પંખીની જેમ વિહરવા માટે તમારી પકડો ઢીલી કરવી પડશે.»`,
+        bhajan: `સ્મરણ પંક્તિ: "અબ હમ જીએંગે પરમાત્મા કે લિયે, ખુદ કો મિટાકર ખુદા સે મિલને કે લિયે."`,
+        practice: `દિનચર્યા પ્રયોગ (Third-Person Practice): તડકો લાગે, પગ દાઝે કે કોઈ વસ્તુ બને ત્યારે મનમાં કહેવું નહીં કે "મને થયું" — માત્ર જીવવું: "આમાં આનંદઘનને શું?"`,
+        sutrasTitle: `સ્વાનુભૂતિનાં ૫ હાર્દ-સૂત્રો`,
+        sutras: [
+          { title: `૧. અંતર્ચક્ષુ ઉઘાડવાં`, meaning: `બાહ્ય દૃશ્યોના મોહમાંથી દૃષ્ટિ પાછી વાળી ભીતરની સત્તાને જોવી.` },
+          { title: `૨. આગમથી સત્ય ઓળખવું`, meaning: `જ્ઞાનીઓ અને શાસ્ત્રોની વાણી પર શ્રદ્ધા રાખી પોતાનું અસલ સ્વરૂપ જાણવું.` },
+          { title: `૩. અહં-મુક્ત તર્ક (અનુમાન)`, meaning: `"આ નામ અને શરીર થોડા સમયનાં છે" — એવા વિવેકથી માન્યતાના ભ્રમ તોડવા.` },
+          { title: `૪. અભ્યાસરસ કેળવવો`, meaning: `પરમાત્માની નજીક રહેવાની એવી તીવ્ર રુચિ રાખવી કે સંસાર આપોઆપ ફિક્કો લાગે.` },
+          { title: `૫. અસંગ હોવામાં ઉપસ્થિત રહેવું`, meaning: `"આમાં આનંદઘનને શું?" એવી જાગૃતિથી સુખ-દુઃખથી અલિપ્ત રહી સ્વમાં સ્થિર થવું.` }
+        ],
+        stories: [
+          {
+            id: `s5-1`,
+            theme: `સાધના`,
+            title: `વસ્તી પૂછતા મુસાફરો અને સ્મશાનનો રસ્તો`,
+            body: `બે મુસાફરોને વસ્તી (ગામ)માં જવું હતું. તેમણે એક સંતને પૂછ્યું: "વસ્તી ક્યાં છે?" સંતે જમણી બાજુ ૩ કિલોમીટર ચાલવા કહ્યું. ત્યાં પહોંચ્યા તો સ્મશાન આવ્યું! પાછા આવીને ફરિયાદ કરી કે "અમે વસ્તી પૂછી હતી ને આપે સ્મશાન બતાવ્યું?"`,
+            moral: `મર્મ: સંતે કહ્યું — મેં સત્ય જ બતાવ્યું છે! ગામમાં તો થોડા દિવસના મહેમાન છો, જીવની અંતિમ અને કાયમી વસ્તી તો આ જ છે — માટે વહેલા જાગી જાઓ.`
+          }
+        ]
+      },
+      {
+        id: 6,
+        day: `2`,
+        dayLabel: `દિવસ ૨ · સત્ર ૬`,
+        timeLabel: `સાંજ (૦૨-૧૦-૨૦૨૬)`,
+        title: `સાધક જીવન`,
+        subtitle: `શ્વાસે શ્વાસે સાધના અને ચાર ઈંટોનો ભાર ઉતારવો`,
+        badgeClass: `badge-emerald`,
+        summary: `ભગવાનની ક્વોલિટીનું જીવન એટલે ખાતાં, પીતાં, સૂતાં અને ચાલતાં — દરેક ક્રિયામાં સાધનાનું અવતરણ. ઈચ્છાનો એક ક્ષણનો નિરોધ પણ મહાતપ છે.`,
+        prose: [
+          `આપણો મનુષ્ય ભવ પાંચ ભૂતના પૂતળા બનવા માટે નહીં, પણ પવિત્ર ચેતના બનવા મળ્યો છે. જૈન પરંપરામાં ઊંઘને પણ <em>યોગનિદ્રા</em>, ભોજનને <em>ગોચરી</em>, પાણી પીવાને <em>યાત્રામાત્ર નિર્વાહ</em> અને ચાલવા-બોલવાને <em>સમિતિ</em> કહીને દરેક ક્રિયાને સાધના બનાવી છે.`,
+          `આપણે જીવનમાં દીક્ષા ન લઈ શકીએ તોય "મારાથી નહીં થાય" એવું માનવાનું બંધ કરવું. શાસ્ત્રો કહે છે: <strong>ઈચ્છારોધે તપસ્વી</strong> — રસ્તા પર કોઈએ ગાડી ખોટી પાર્ક કરી હોય અને તમને ગુસ્સો આવે, પણ તમે ક્ષમા કરી ઈચ્છા રોકી લો, તો તે પણ મહાતપ છે! જીવનમાં જે મહાભારત ચાલે છે તે તમારા ભીતર રહેલા મહાવીરને જગાડવા માટે જ ચાલે છે.`
+        ],
+        quote: `«જ્યારે ચારેય ઈંટો (તન, મન, નામ, અહંકાર) નો થેલો ઊતરી ગયો, ત્યારે ભીતરમાં મૌલા ખૂલી ગયા!»`,
+        bhajan: `ભજન ભાવ: "મેરો મન તો ડગે ના, હરિજન પ્રેમ-પ્રાણ; વિપત્તિ પડે તોય સદ્ગુરુ વચનમાં વિશ્વાસ."`,
+        practice: `સાધક પ્રતિજ્ઞા: દિવસમાં ઓછામાં ઓછી એક વાર પોતાની ઈચ્છા, પ્રતિક્રિયા કે વળગણને રોકીને "ઈચ્છા-નિરોધ"નું તપ કરવું.`,
+        sutrasTitle: `સાધક જીવનનાં ૫ સૂત્રો`,
+        sutras: [
+          { title: `૧. દેવું છે, લેવું નથી`, meaning: `માન, સત્કાર કે પ્રશંસાની અપેક્ષા વગર માત્ર પ્રેમ અને સહયોગ વહેંચવાનો સ્વભાવ બનાવવો.` },
+          { title: `૨. વિચારવું છે, વિચારવું નથી`, meaning: `"હું"ને પુષ્ટિ મળે તે સંદર્ભે ન વિચારવું; પરંતુ અહંને શૂન્ય કેમ કરવો તે અંગે સજાગ ચિંતન કરવું.` },
+          { title: `૩. ભાગવું નથી, જાગવું છે`, meaning: `જવાબદારીઓ કે સંબંધોથી ભાગી જવાને બદલે ભીતર જાગૃત થઈ ફરજો નિભાવવી.` },
+          { title: `૪. ભાર ઉતારવો છે`, meaning: `તન, મન, નામ અને અહંકાર — આ ચારેય ઈંટોનો બોજ છોડી હળવાફૂલ થવું.` },
+          { title: `૫. હોના નહીં (કંઈક બનવું નહીં)`, meaning: `કંઈક ખાસ સાબિત કરવાની દોડ છોડી માત્ર સહજ હોવામાં રહેવું.` }
+        ],
+        stories: [
+          {
+            id: `s6-1`,
+            theme: `સાધના`,
+            title: `પર્વત ચઢતો સાધક અને ૪ ઈંટોનો થેલો`,
+            body: `એક સાધક પર્વતની ટોચે પહોંચવા મહેનત કરતો હતો, પણ પીઠ પર ૪ ઈંટો ભરેલો ભારે થેલો હતો. ચઢાણ કપરું થતું ગયું તેમ ગુરુએ એક પછી એક ઈંટ ફેંકાવી. છેલ્લે એક જ ઈંટ બચી ત્યારે શ્વાસ ચઢવા લાગ્યો અને તે પડી ગયો. ગુરુએ કહ્યું: "આ છેલ્લી ઈંટ પણ કેમ પકડી રાખી છે?" જેવો તેણે થેલો ફેંકી દીધો કે તરત હળવો થઈ શિખર પર પહોંચી ગયો!`,
+            moral: `મર્મ: એ ચાર ઈંટો એટલે તન, મન, નામ અને અહંકાર. આ ભાર ઊંચકીને મુક્તિની યાત્રા થઈ શકતી નથી; શૂન્યતા જ શિખરે પહોંચાડે છે.`
+          },
+          {
+            id: `s6-2`,
+            theme: `સમર્પણ`,
+            title: `આપવાના સ્વભાવવાળા મહાત્મા`,
+            body: `એક એવા મહાત્મા હતા કે કોઈ તેમની ઘડિયાળના વખાણ કરે તો તરત કહે "લઈ જા!", કોઈ તેમના કામ કે વસ્તુના વખાણ કરે તો કહે "લઈ જા!". તેમને કંઈ ભેગું જ નહોતું કરવું.`,
+            moral: `મર્મ: જ્યાં કશી આશંસા કે માલિકી નથી ત્યાં હૃદય નિષ્કામ અને સમતામય બની જાય છે — "દેવું છે, લેવું નથી" એ જ સાધકનો સ્વભાવ.`
+          },
+          {
+            id: `s6-3`,
+            theme: `જાગરણ`,
+            title: `મંચ પર સ્વાગતનો ભ્રમ અને રસ્તાનો કૂતરો`,
+            body: `એક માણસ મંદિરમાં પ્રવેશ્યો ત્યારે લોકો હાથ જોડી ફૂલો વરસાવવા લાગ્યા. તે મનમાં ફુલાઈ ગયો કે "વાહ, આજે તો મારું ભવ્ય સન્માન થઈ રહ્યું છે!" જેવો સ્ટેજ પર ચઢ્યો કે કોઈએ પકડીને નીચે ઉતાર્યો: "તમારા માટે નહીં, પાછળ જુઓ — ગુરુ ભગવંત પધારી રહ્યા છે!" (અને જેમ કૂતરાનું કોઈ ઘર નથી હોતું, જ્યાં જગ્યા મળે ત્યાં સૂઈ જાય તેમ આપણે પણ ક્ષણિક સંયોગોને ઘર માની બેસીએ છીએ).`,
+            moral: `મર્મ: માત્ર યોગાનુયોગ બનેલી ઘટનામાં પોતાનું મહત્ત્વ જોડીને આપણે ખોટા અભિમાનમાં ફુલાઈ જઈએ છીએ.`
+          }
+        ]
+      },
+      {
+        id: 7,
+        day: `3`,
+        dayLabel: `દિવસ ૩ · સત્ર ૭`,
+        timeLabel: `સવાર (૦૩-૧૦-૨૦૨૬)`,
+        title: `સાધ્ય જીવન`,
+        subtitle: `સાધનને માથે ન ઉપાડો — મંઝિલ પર નજર રાખો`,
+        badgeClass: `badge-brass`,
+        summary: `શાસ્ત્રના "અક્ષર" દ્વારા ભીતરના કદી ન ક્ષય પામતા "અક્ષર" (આત્મા)ને પામવો. વ્યક્તિ, શબ્દ, મંદિર કે માન્યતામાં અટવાયા વિના સાધ્ય પર લક્ષ્ય રાખો.`,
+        prose: [
+          `ગોખેલા કે લખેલા શબ્દો જ્યાં સુધી ભાવાત્મક અનુભૂતિમાં ન પલટાય ત્યાં સુધી તે કોરા શબ્દો જ રહે છે. શાસ્ત્રના અક્ષરો ભીતરના "અક્ષર" (કદી નાશ ન પામતા ચૈતન્ય) ની ઓળખ કરાવવા માટે છે. પરમાત્માની પ્રતિમા પણ આપણને એ જ સંદેશ આપે છે કે "જેમ હું મારામાં સમાયેલો છું, તેમ તું પણ તારી પ્રકૃતિમાં સમાઈ જા!"`,
+          `ત્રિપૃષ્ઠના ભવમાં ક્રોધમાં રહેલો જીવ મહાવીર બની શક્યો અને મલ્લિનાથ માયામાં રહ્યા પછી પણ ભગવાન બની શક્યા, તો તમારામાં પણ એ જ તેજ રહેલું છે. ખોજી બનીને સ્વીકારો અથવા ખાલી થઈને સ્વીકારો — બાકી કલિકાળ કોઈ બાધા નથી, તે તો જાગવા માટેનો બોધ છે.`
+        ],
+        quote: `«ગુરુ એ નથી ઈચ્છતા કે તમે માત્ર તેમના ભક્ત બની રહો; ગુરુ તો એ જ ઈચ્છે છે કે તમે પરમાત્મામાં સમાઈ જાવ!»`,
+        bhajan: `આધ્યાત્મિક બોધ: "નશ્વરને ખોઈને શાશ્વતના પ્રેમમાં ડૂબવું — એ જ સાચો વિશ્રામ, એ જ તમારી અસલ સુંદરતા."`,
+        practice: `ધ્યેય-સ્મરણ: કોઈ પણ ધાર્મિક ક્રિયા, પૂજા કે સ્વાધ્યાય કરતી વખતે પોતાને પૂછવું — "આનાથી મારો અહં ઘટી રહ્યો છે કે વધી રહ્યો છે?"`,
+        sutrasTitle: `સાધ્ય-લક્ષી જીવનનાં ૫ સૂત્રો`,
+        sutras: [
+          { title: `૧. વ્યક્તિ નહીં, સાધ્ય જુઓ`, meaning: `પાત્ર કે પરિસ્થિતિની ખામીઓ જોવાને બદલે મારું પરમ લક્ષ્ય (મુક્તિ/શાંતિ) શું છે તે જુઓ.` },
+          { title: `૨. શબ્દ નહીં, મર્મ જુઓ`, meaning: `વાક્યોનાં અર્થઘટન કે શાબ્દિક વિવાદમાં પડ્યા વગર સદ્ગુરુના હાર્દને પકડો.` },
+          { title: `૩. મંદિર નહીં, મંઝિલ જુઓ`, meaning: `ધર્મસ્થાન અને ક્રિયાઓ મંઝિલે પહોંચાડવાનું માધ્યમ છે, ત્યાં જ અટકી જવાનું સ્થળ નથી.` },
+          { title: `૪. માન્યતા નહીં, માર્ગ જુઓ`, meaning: `પોતાના પૂર્વગ્રહો છોડી જે માર્ગ અહંકારને ઓગાળે તેને અનુસરો.` },
+          { title: `૫. માયા નહીં, મસ્તી જુઓ`, meaning: `દંભ, છળ અને ઝઘડામાં રસ રાખવાને બદલે ભીતરની અકારણ મસ્તીમાં જીવો.` }
+        ],
+        stories: [
+          {
+            id: `s7-1`,
+            theme: `સાધના`,
+            title: `માથા પર હોડી ઉપાડીને ફરતા ચાર બ્રાહ્મણ`,
+            body: `ચાર બ્રાહ્મણો પોતાના માથા પર એક મોટી હોડી ઊંચકીને બજારમાંથી પસાર થઈ રહ્યા હતા. લોકોએ આશ્ચર્યથી પૂછ્યું કે આ શું કરો છો? તેમણે કહ્યું: "અમે કૃતઘ્ની નથી! આ હોડીએ અમને નદી પાર કરાવી છે, તેનો ઉપકાર કેમ ભૂલીએ?"`,
+            moral: `મર્મ: હોડીનું કામ નદી પાર કરાવવાનું હતું; પાર ઊતર્યા પછી તેને માથે ઉપાડીને ફરવાનું નહોતું! તેમ ધાર્મિક સાધનો અને ક્રિયાઓ પાર ઉતારવા માટે છે, બોજ બનાવવા નહીં.`
+          },
+          {
+            id: `s7-2`,
+            theme: `સાધના`,
+            title: `દોરી અને લંગોટ માટે લડતા બે સાધુ`,
+            body: `જંગલમાં ૧૨-૧૨ વર્ષથી સાધના કરતા બે સાધુઓ જોરજોરથી ઝઘડી રહ્યા હતા. વચ્ચે પડનારને તેમણે કહ્યું: "અમારો મામલો ચાલે છે!" પૂછતાં ખબર પડી કે એક સાધુની બાંધેલી દોરી પર બીજા સાધુએ પોતાની લંગોટ સૂકવી હતી!`,
+            moral: `મર્મ: જો "મારું"પણું ન છૂટે તો વર્ષોની તપસ્યા અને જંગલવાસ પછી પણ આપણે નાની અમથી માયામાં ફસાઈને લડતા રહીએ છીએ.`
+          }
+        ]
+      },
+      {
+        id: 8,
+        day: `3`,
+        dayLabel: `દિવસ ૩ · સત્ર ૮`,
+        timeLabel: `બપોર (૦૩-૧૦-૨૦૨૬)`,
+        title: `સામ્ય જીવન`,
+        subtitle: `એકની પ્રતીતિથી સર્વમાં એકની ઓળખ — અભેદ દૃષ્ટિ`,
+        badgeClass: `badge-brass`,
+        summary: `જ્યાં "બે" છે ત્યાં મોહ છે, અને જ્યાં "એક" છે ત્યાં મહાવીર છે. બહાર ભલે વ્યવહારના હજાર વેશ હોય, અંદરથી એક જ નિત્ય-નિરંજન તત્ત્વ રહેવું.`,
+        prose: [
+          `આપણે એક જ આત્મા હોવા છતાં શરીર, સમાજ, ઉંમર અને કર્મના ઉદય મુજબ ખુદને અનેક રૂપમાં માનીએ છીએ. સામે પરમાત્મા કહે છે કે <strong>અનેકમાં પણ એક જ બિરાજમાન છે</strong>. જેમ ૫ ઈંચના ભગવાન અને ૫૧ ઈંચના ભગવાનની અંગલૂછણા એક જ ભાવથી થાય છે, તેમ વ્યવહારિક ભેદ જ્ઞાન જાગતાં જ ઊડી જાય છે.`,
+          `શાસ્ત્રો કહે છે કે નિગોદના સૂક્ષ્મ જીવના પણ આઠ રુચક આત્મપ્રદેશ ખુલ્લા હોય છે — તમારી અંદર પણ એવા પ્રદેશો છે જેમાં તમારા અને સિદ્ધોના સ્વરૂપમાં કોઈ ભેદ નથી! સાધુઓ પાસે રહેલું <em>રજોહરણ (ઓઘો)</em> એ ખોટા રસ્તે જતાં અટકાવતું સુરક્ષા કવચ છે.`
+        ],
+        quote: `«અનેકને જોશો તો મોહ ઘેરી લેશે; અને સૌમાં એકને જોશો તો મહાવીરની મૌજ તમને ઘેરી લેશે!»`,
+        bhajan: `અભેદ ચિંતન: "એક કી પ્રતીતિ સે સબ મેં એક કી પહચાન — ન કોઈ મિત્ર, ન કોઈ શત્રુ, સર્વત્ર ભગવત્ સ્વરૂપ."`,
+        practice: `સમતાની પાંચ ટિકડીઓ: જ્યારે પણ કોઈ વ્યક્તિ પ્રત્યે દ્વેષ કે વિવાદ જાગે ત્યારે આ પાંચ વાક્યોનો ("સૌ સાચા છે... સૌ સિદ્ધ છે") વિચાર કરવો — પરંતુ અહંને પોષવા નહીં, અહંને શૂન્ય કરવા!`,
+        sutrasTitle: `અભેદ સામ્ય જીવનનાં ૫ સૂત્રો`,
+        sutras: [
+          { title: `૧. બધા સાચા છે`, meaning: `દરેક જીવ પોતાના દૃષ્ટિકોણ અને કર્મ-ઉદયની ભૂમિકાએ સાચો જ છે — જક્કીપણાની ગાંઠ છોડો.` },
+          { title: `૨. બધા સાધુ રૂપ છે`, meaning: `જેમ ટપાલી માત્ર તમારા લખેલા પત્રો પહોંચાડે છે તેમ દરેક વ્યક્તિ આપણાં જ કર્મોનો હિસાબ પૂરો પાડે છે.` },
+          { title: `૩. બધા સાર્થ છે`, meaning: `કોઈ વ્યર્થ નથી; દરેક પાત્ર આપણા જાગરણ માટે ઉપકારી અને સાર્થક નિમિત્ત છે.` },
+          { title: `૪. બધા સખા છે`, meaning: `ભૂતકાળમાં અનંત વાર આપણે સૌ મિત્રો-સગા રહી ચૂક્યા છીએ; કોઈ પરાયું કે દુશ્મન નથી.` },
+          { title: `૫. બધા સિદ્ધ છે`, meaning: `આવરિત હોવા છતાં દરેક જીવનું મૂળ સ્વરૂપ અનંત સિદ્ધો જેવું જ શુદ્ધ અને પરમાત્મા સ્વરૂપ છે.` }
+        ],
+        stories: [
+          {
+            id: `s8-1`,
+            theme: `સાક્ષી`,
+            title: `રાજા ગુપ્ત વેશમાં ભિખારી બનીને નીકળ્યો`,
+            body: `નગરમાં શું ચાલે છે તે જાણવા રાજાએ ભિખારીનો વેશ પહેર્યો, પોતાની ભાષા, ચાલ અને ઢબ બદલી નાખી. જોનાર કોઈ તેને ભિખારી જ માને — પણ પ્રકૃતિથી તે ભિખારી નથી, સમ્રાટ જ છે!`,
+            moral: `મર્મ: વ્યવહારની જરૂરિયાત મુજબ બહારનાં હજાર રૂપ કે રોલ ભજવવા પડે, પણ અંદરથી તમારી અસલ રાજા (આત્મા) જેવી ઓળખ કદી ન ભૂલો.`
+          },
+          {
+            id: `s8-2`,
+            theme: `સાક્ષી`,
+            title: `અંગૂર, ઉજૂમ અને ઈનાબ — એક જ દ્રાક્ષ માટે ઝઘડો`,
+            body: `ચાર જુદી જુદી ભાષાના મુસાફરો પાસે ભેગા થોડા પૈસા હતા અને ચારેયને ભૂખ લાગી હતી. એકે કહ્યું "અંગૂર ખાવાં છે", બીજાએ કહ્યું "ઉજૂમ", ત્રીજાએ કહ્યું "ઈનાબ" — અને ચારેય લડી પડ્યા! જ્યારે દુકાનદારે દ્રાક્ષ લાવીને મૂકી ત્યારે ચારેય હસી પડ્યા કે વાત તો એક જ વસ્તુની હતી!`,
+            moral: `મર્મ: શબ્દો, પંથો, સંપ્રદાયો અને ભાષાના ભેદથી આપણે લડીએ છીએ, પણ મૂળ સત્ય તો બધે એક જ છે.`
+          },
+          {
+            id: `s8-3`,
+            theme: `જાગરણ`,
+            title: `સર્કસમાં મરેલા વાઘનું નાટક`,
+            body: `એક સર્કસમાં વાઘ મરી ગયો. માલિકે સિંહ અને વાઘની લડાઈનો ખેલ બતાવવા એક ગરીબ માણસને વાઘનું ચામડું પહેરાવી પિંજરામાં મોકલ્યો. સામે સાક્ષાત્ સિંહ જોઈને તે માણસ થથરવા લાગ્યો. ત્યાં સિંહ નજીક આવીને ધીમેથી બોલ્યો: "ભાઈ ડરીશ નહીં, હું પણ તારી જેમ અંદર માણસ જ છું!"`,
+            moral: `મર્મ: આ સંસારના સર્કસમાં આપણે બધા અલગ-અલગ હોદ્દા અને દેખાવનાં મહોરાં પહેરી એકબીજાથી ડરીને જીવીએ છીએ; અંદર તો સૌ એક જ ચેતન છીએ.`
+          }
+        ]
+      },
+      {
+        id: 9,
+        day: `3`,
+        dayLabel: `દિવસ ૩ · સત્ર ૯`,
+        timeLabel: `સાંજ (૦૩-૧૦-૨૦૨૬)`,
+        title: `સ્વીકાર જીવન`,
+        subtitle: `લાચારી નહીં, પરંતુ તાત્ત્વિક અલિપ્તતા (Spiritual Disconnection)`,
+        badgeClass: `badge-brass`,
+        summary: `કોઈ બોસ કે પહેલવાન સામે ડરીને ચૂપ રહેવું એ સ્વીકાર નથી. ભીષણ તાંડવની વચ્ચે પણ "આ મારી સાથે નથી બનતું" એવા વિશ્રામમાં રહેવું તે સ્વીકાર છે.`,
+        prose: [
+          `જ્યારે પરિવારમાં કે વ્યવહારમાં કોઈ મુશ્કેલી આવે ત્યારે આપણે બે ઉપાય કરીએ છીએ: કાં તો સંબંધ છોડીને ભાગી જવું (<em>Physical Disconnection</em>) અથવા મનને બીજે વાળીને વાત ભૂલી જવી (<em>Mental Disconnection</em>). આ બંને ક્ષણિક છે; જ્યાં જશો ત્યાં નવા પ્રશ્નો આવશે. ખરો ઉપાય છે <strong>Spiritual Disconnection</strong> — હાજર રહીને પણ અલિપ્ત રહેવું.`,
+          `માત્ર "બી પોઝિટિવ"નાં પુસ્તકો ગોખવાથી સંકટ ટાણે કામ નહીં આવે; તમે <strong>Being Pure (શુદ્ધ)</strong> બનો, તો તમારા ભીતરના પરમાત્મા આપોઆપ યોગ્ય રસ્તો અને વાણી સંભાળી લેશે. ઘરને સંભાળવાની તાકાત તમારા પોતાના ભીતરના ઘરમાં જ રહેલી છે.`
+        ],
+        quote: `«તમારે સમસ્યાનું સમાધાન નથી કરવાનું — તમારે એ સ્થિતિ પર પહોંચવાનું છે જ્યાં કોઈ સમસ્યા જ ન બચે!»`,
+        bhajan: `ઉપકાર સ્મરણ: "તારા વિના સૂનું રે, તું મારો સંગાથી, તું મારો શબ્દ, તું જ પરિભાષા — તારા પ્રેમ-કરુણાના સાગરમાં જ સુકૂન છે."`,
+        practice: `પરિસ્થિતિ-વિરામ: કોઈ ઘટના ગમે તેવી બને ત્યારે પ્રતિક્રિયા આપતાં પહેલાં ૩ સેકન્ડ અટકીને જોવું કે "આ કાળ, સ્વભાવ અને નિયતિથી ચાલી રહ્યું છે."`,
+        sutrasTitle: `તાત્ત્વિક સ્વીકારનાં ૫ સૂત્રો`,
+        sutras: [
+          { title: `૧. કાળથી ચાલે છે`, meaning: `દરેક ઘટનાનો એક સમય હોય છે; અધીરાઈ કે ઉતાવળથી કાળચક્ર બદલાતું નથી.` },
+          { title: `૨. સ્વભાવથી ચાલે છે`, meaning: `દરેક વસ્તુ અને વ્યક્તિ પોતાના ગુણધર્મ મુજબ વર્તે છે — અગ્નિ બાળે અને પાણી શીતળતા આપે.` },
+          { title: `૩. નિયતિથી ચાલે છે`, meaning: `જે ભવિતવ્યતા છે તેને હસતે મોઢે સ્વીકારી ચિત્તની પ્રસન્નતા અકબંધ રાખવી.` },
+          { title: `૪. કર્તા-ભાવ છોડવો`, meaning: `આખી દુનિયા હું ચલાવું છું એવો ભાર માથેથી ઉતારી મૂકવો.` },
+          { title: `૫. અલિપ્ત જાગૃતિ`, meaning: `ક્યાંય જકડાયા વગર, લાચાર થયા વગર, સાક્ષી અને સહજ ભાવે જાગતા રહેવું.` }
+        ],
+        stories: [
+          {
+            id: `s9-1`,
+            theme: `સાક્ષી`,
+            title: `માછલી અને મહાસાગર`,
+            body: `એક નાની માછલીએ પોતાની માતાને પૂછ્યું: "મમ્મી, મહાસાગર ક્યાં છે?" માતાએ હસીને કહ્યું: "અરે! તું જેની અંદર છે તે જ મહાસાગર છે!"`,
+            moral: `મર્મ: ભીતરનાં શુભ-અશુભ ભાવોથી અલગ થઈને શોધવા જવાની જરૂર નથી; તમારું હોવું જ એ ચૈતન્યનો મહાસાગર છે જેમાં બધા ભાવ તરંગોની જેમ ઊઠે છે.`
+          },
+          {
+            id: `s9-2`,
+            theme: `સાક્ષી`,
+            title: `ઉપરથી ઈંટ પડી અને પહેલવાન નીકળ્યો`,
+            body: `નીચે જતા માણસ પર ઉપરથી ઈંટ પડી. તે ગુસ્સામાં લાલચોળ થઈને ઈંટ લઈ ઉપર લડવા દોડ્યો. દરવાજો ખોલ્યો તો સામે ૭ ફૂટનો કદાવર પહેલવાન ઊભો હતો! તેને જોતાં જ તે ધ્રૂજવા લાગ્યો અને નમ્રતાથી બોલ્યો: "માફ કરજો ભાઈ, તમારી ઈંટ નીચે પડી હતી તે આપવા આવ્યો છું!"`,
+            moral: `મર્મ: ડર, લાચારી કે મજબૂરીથી ચૂપ થઈ જવું તે સ્વીકાર નથી. જ્ઞાનપૂર્વક ઘટનાને બહારની સમજવી તે સાચો સ્વીકાર છે.`
+          },
+          {
+            id: `s9-3`,
+            theme: `જાગરણ`,
+            title: `ખમીસ ઊલટું પહેરીને દેશ સુધારવા નીકળેલો ગોપીચંદ`,
+            body: `ગોપીચંદ બધાની ટીકા કર્યા કરતો: "પ્રધાનમંત્રી બરાબર નથી, રાષ્ટ્રપતિ બરાબર નથી; એક દિવસ માટે દેશ મને સોંપો તો બધું સીધું કરી દઉં!" સામેવાળાએ શાંતિથી કહ્યું: "ભાઈ, આખો દેશ સુધારતાં પહેલાં તેં જે ખમીસ ઊલટું પહેર્યું છે તે તો સીધું કર!"`,
+            moral: `મર્મ: આપણે આખા પરિવાર અને સમાજને સુધારવામાં પડ્યા છીએ, પણ પોતે ઊલટા ચાલીએ છીએ તે દેખાતું નથી.`
+          },
+          {
+            id: `s9-4`,
+            theme: `સાક્ષી`,
+            title: `જૂતાંનો હાર અને સાધકની મસ્તી`,
+            body: `કોઈએ અપમાન કરવા એક સંતને જૂતાંનો હાર પહેરાવ્યો. સંતે હસીને કહ્યું: "ફટાફટ પહેરાવો! ફૂલનો હાર તો કરમાઈ જાય છે, પણ આ જૂતાંનો હાર તો મને અને મારા આશ્રિતોને પહેરવા કામ લાગશે!"`,
+            moral: `મર્મ: જ્યારે ચિત્ત શુદ્ધ હોય ત્યારે અપમાન અને સંઘર્ષમાં પણ વ્યક્તિ અચલ અને આનંદિત રહી શકે છે.`
+          }
+        ]
+      },
+      {
+        id: 10,
+        day: `4`,
+        dayLabel: `દિવસ ૪ · સત્ર ૧૦`,
+        timeLabel: `સવાર (૦૪-૧૦-૨૦૨૬)`,
+        title: `સ્પર્શ જીવન`,
+        subtitle: `વૈરાગ્ય અને પ્રેમથી પરમાત્માની વેવલેન્થને સ્પર્શવું`,
+        badgeClass: `badge-rose`,
+        summary: `જ્યાં આપણી આસ્થા અટકેલી છે ત્યાં બોધનું ઓપરેશન જરૂરી છે. ભગવાનને ઘર-દુકાન સંભાળવાનું કામ સોંપવાને બદલે ભગવાનનું કામ (ખુદને મટાડવાનું) ઉપાડવું.`,
+        prose: [
+          `ભીતર પ્રવેશતાં પહેલાં તપાસી લેવું કે આપણી આસ્થા ક્યાં અટકેલી છે. કાં તો વૈરાગ્યથી પ્રેમમાં પડો કે સંસાર વ્યર્થ લાગે, અથવા પરમાત્મા સાથે એવો અનન્ય પ્રેમ કરો કે બાકીનું બધું આપોઆપ નીરસ થઈ જાય. અનંત તીર્થંકરો અને સદ્ગુરુઓ આવ્યા — તેમનું કામ આપણને (અહંને) હટાવવાનું હતું, પણ આપણે આપણી જાતને મજબૂતીથી પકડી રાખી.`,
+          `આપણે પ્રભુને કહી દીધું છે: "પૈસા તું સંભાળ, દુકાન તું સંભાળ, પરિવાર તું સંભાળ!" — શું ભગવાન આપણી કામવાળી બાઈ છે? હવે તમારાં કામ પ્રભુ પર છોડવાનું બંધ કરી, પ્રભુએ જે કામ તમારા પર છોડ્યું છે (પોતાના અહંને વિસર્જિત કરવાનું) તે શરૂ કરો.`
+        ],
+        quote: `«મારે એટલું જ કહેવું છે: "હે પરમાત્મા! હું ખૂબ આનંદમાં છું, તું મારી ચિંતા ન કરતો!"»`,
+        bhajan: `ભક્તિ ધારા: "જબ નામ ઔર જીવન કી વેવલેન્થ મિલ જાયે, તબ ભીતર કા નૃત્ય સ્વયં શુરૂ હો જાતા હૈ."`,
+        practice: `ભક્તિ સંકલ્પ: પ્રભુ પાસે કોઈ દુન્યવી વસ્તુ માગ્યા વિના માત્ર "તું મને મળે" એવી અનન્ય પ્રેમ-ધારા વહેવડાવવી.`,
+        sutrasTitle: `પ્રભુ-સ્પર્શની ૫ ભક્તિ-ધારાઓ`,
+        sutras: [
+          { title: `૧. અભિમુખ ધારા`, meaning: `સંસાર તરફથી પીઠ ફેરવી પરમાત્મા તરફ મુખ રાખીને જીવવું.` },
+          { title: `૨. સન્મુખ ધારા`, meaning: `પ્રભુની સામે હૃદય ખુલ્લું મૂકી કોઈ પણ દંભ વગર ઊભા રહેવું.` },
+          { title: `૩. આરાધક ધારા`, meaning: `દરેક શ્વાસ અને ક્રિયાને પ્રભુની આરાધના રૂપે સમર્પિત કરવી.` },
+          { title: `૪. સમર્પિત ધારા`, meaning: `"મને મારાથી નહીં, હવે તું મને ચલાવ" એવા સંપૂર્ણ વિશ્વાસમાં રહેવું.` },
+          { title: `૫. અનન્ય ધારા`, meaning: `અન્ય કંઈ જ નહીં — માત્ર એક જ પરમાત્મા સાથે અભેદ અને અનન્ય બની જવું.` }
+        ],
+        stories: [
+          {
+            id: `s10-1`,
+            theme: `સમર્પણ`,
+            title: `ક્રૂર માણસ અને ઘોડીજી પાર્શ્વનાથ મંદિર`,
+            body: `રોટલી ન બને તો માતાને મારનાર અને કીડી-મકોડાને પથ્થરથી કચડી નાખનાર એક અત્યંત ક્રૂર માણસ મિત્રના આગ્રહથી મુંબઈના ઘોડીજી પાર્શ્વનાથ મંદિરે ગયો. તેને મૂર્તિમાં કોઈ શ્રદ્ધા નહોતી, પણ તેણે જોયું કે તેનો મિત્ર પ્રભુ સામે ઊભા રહી પ્રેમથી રડી રહ્યો છે! મિત્રની એ આંખોનાં આંસુ જોઈ તેનું કઠોર હૃદય પીગળી ગયું.`,
+            moral: `મર્મ: શ્રદ્ધા અને પ્રેમની તરંગ (વેવલેન્થ) એટલી પ્રબળ હોય છે કે તે અન્યના પાષાણ જેવા હૃદયને પણ પરમાત્માનો સ્પર્શ કરાવી દે છે.`
+          },
+          {
+            id: `s10-2`,
+            theme: `સમર્પણ`,
+            title: `નામ સાંભળીને નાચતા ત્રણ ભક્તો`,
+            body: `ત્રણ ભોળા ભક્તો ભગવાનની ભક્તિમાં એટલા લીન રહેતા કે કોઈનું નામ પણ "રામભાઈ" કહીને બોલાવે તો તે સાંભળતાં જ પ્રભુના પ્રેમમાં નાચવા લાગતા! ગામનો એક પંડિત તેમની ઠેકડી ઉડાવવા આવ્યો, પણ તેમની નિર્દોષ તન્મયતા સામે હારી ગયો.`,
+            moral: `મર્મ: પરમાત્મા સાથેનું અનુસંધાન શબ્દોના વ્યાકરણમાં નહીં, હૃદયના ભીના પ્રેમ અને તન્મયતામાં રહેલું છે.`
+          }
+        ]
+      },
+      {
+        id: 11,
+        day: `4`,
+        dayLabel: `દિવસ ૪ · સત્ર ૧૧`,
+        timeLabel: `બપોર (૦૪-૧૦-૨૦૨૬)`,
+        title: `સાક્ષી જીવન`,
+        subtitle: `તટસ્થ દ્રષ્ટા બનવાની પાંચ કલાઓ — નટ, પટ અને તટ`,
+        badgeClass: `badge-rose`,
+        summary: `ઘટના બને છે તેથી પ્રતિક્રિયા નથી થતી, પણ "મારી સાથે બની" એવી સુષુપ્તિથી પ્રતિક્રિયા થાય છે. પોતાની ચેતનાની ભૂમિ ઊંચી ઉઠાવો એટલે ૯૯% સમસ્યાઓ ઓગળી જાય.`,
+        prose: [
+          `જીવનમાં જ્યાં સુધી આપણે નીચલી ભૂમિકાએ ઊભા રહીને નાની-નાની ઘટનાઓ સાથે અથડાતા રહીશું, ત્યાં સુધી સમસ્યાઓ ઉકેલવાના જ ધંધા કરવા પડશે. એક વાર પોતાની ચેતનાનું સ્તર (Standard) ઊંચું લાવી દો, તો બાકીની ૧% જવાબદારી માત્ર મનના એક હળવા આદેશથી ચાલી જશે.`,
+          `આપણો સ્વભાવ <em>"ઊંટ કલા"</em> જેવો બની ગયો છે — જ્યાં જાય ત્યાં પરિસ્થિતિમાં ફસાઈ જવું. આપણે <strong>"અચિત્ર"</strong> બનવાનું છે — એટલે કે અનેક આકારો અને પરિસ્થિતિઓની વચ્ચે પણ એકરૂપ, અલિપ્ત અને માત્ર ઉપસ્થિત રહેવું. <strong>નો રિએક્શન, નો રિલેશન</strong> (વિકલ્પમુક્ત સંબંધ) એ જ સાક્ષીભાવ છે.`
+        ],
+        quote: `«ઝટ કરશો નહીં, તટ પર ઊભા રહેજો! કિનારે ઊભા રહીને સંસારના પ્રવાહને માત્ર જોવાની કલા શીખી લો.»`,
+        bhajan: `ધ્યાન પદ: "આ નામ તારું ગમી ગયું છે, કહો અમે શું કરીએ? રાત-દિવસ એ નામ જપી, શ્વાસે-શ્વાસે હરિ-નામ ભરીએ."`,
+        practice: `સાક્ષી મંત્ર: જ્યારે મન કોઈ ઘટનામાં કૂદવા જાય ત્યારે તરત યાદ કરવું — "મઢીમાં કે કઢીમાં સાર નથી, સાર તો મારા માંહી (ભીતર) છે!"`,
+        sutrasTitle: `સાક્ષી બનવાની ૫ કલાઓ`,
+        sutras: [
+          { title: `૧. ઊંટ કલા નહીં, નટ કલા`, meaning: `વાંકાચૂકા થઈ પરિસ્થિતિમાં ફસાઈ જવાને બદલે કુશળ નટ (અભિનેતા)ની જેમ અલિપ્ત રહી રોલ ભજવો.` },
+          { title: `૨. કપટ કલા નહીં, પટ કલા`, meaning: `કશાને ગાંઠે બાંધી ન રાખવું; પટ (વસ્ત્ર/પડદા) ની જેમ પ્રસંગ પૂરો થતાં જ સમેટાઈ જવું.` },
+          { title: `૩. લટ કલા નહીં, તટ કલા`, meaning: `વહેણમાં તણાવા કે લટકી પડવાને બદલે નદીના કિનારે (તટ પર) સ્થિર ઊભા રહી બધું વહેતું જોવું.` },
+          { title: `૪. ઝટ કરશો નહીં, તટ પર રહો`, meaning: `તાત્કાલિક પ્રતિક્રિયા (Reaction) આપવાની ઉતાવળ ન કરવી, શાંત સાક્ષીમાં ટકી રહેવું.` },
+          { title: `૫. અચિત્ર રહેવાની કલા`, meaning: `પરિસ્થિતિ મુજબ ચિત્રવિચિત્ર રંગ ન બદલતાં હંમેશાં એકરસ અને સ્વસ્થ રહેવું.` }
+        ],
+        stories: [
+          {
+            id: `s11-1`,
+            theme: `સાક્ષી`,
+            title: `ગુરુકુળવાસની ચાર ત્રિમાસિક પરીક્ષાઓ`,
+            body: `ગુરુએ એક શિષ્યને ૩-૩ મહિના માટે ચાર જગ્યાએ રહેવા મોકલ્યો: (૧) જુગારખાનામાં — જ્યાં કોઈ જીતે, કોઈ હારે, કોઈ રડે ને કોઈ હસે (જિંદગી એક જુગાર જેવી છે); (૨) સ્મશાનમાં — જ્યાં મોટા-મોટા પદાધિકારીઓ આવીને રાખ થઈ જાય છે; (૩) પહાડ પર — જ્યાં તોફાન અને દાવાનળ વચ્ચે પણ પર્વત અચલ રહે છે; (૪) નદીના તટ પર — જ્યાં બધું સતત વહી જાય છે.`,
+            moral: `મર્મ: ગુરુના આદેશ મુજબ ચાલવું એ જ સાચો ગુરુકુળવાસ. આ ચાર અનુભવોથી શિષ્યના ભીતર અચલ સાક્ષીભાવ પ્રગટી ગયો.`
+          },
+          {
+            id: `s11-2`,
+            theme: `જાગરણ`,
+            title: `ઊંટનાં લગ્નમાં ગધેડા ગાયક`,
+            body: `ઊંટનાં લગ્ન હતાં, એટલે શોભા વધારવા ગધેડા અને ગધેડીને ગાયક તરીકે બોલાવ્યા! બંનેએ સૂર છેડ્યા અને એકબીજાનાં ખોટાં વખાણ કરવા લાગ્યા — "તમે તો ધન્નાશા છો, ભામાશા છો!"`,
+            moral: `મર્મ: આપણે પણ સમાજમાંથી માત્ર ખોટાં વખાણ, ફૂલહાર અને અભિપ્રાયોની ભૂખ સંતોષવા જીવનભર દોડતા રહીએ છીએ.`
+          },
+          {
+            id: `s11-3`,
+            theme: `સાધના`,
+            title: `કઢીના સ્વાદથી જાગેલા સાધુ`,
+            body: `એક સાધુને કઢી બહુ ભાવતી હતી, તે કારણે તેઓ પોતાની સાધનાથી ભ્રષ્ટ થઈ ગયા. જાગ્યા ત્યારે તેમણે ભક્તને કહ્યું કે "બે ડોલ કઢી બનાવ!" એક બાજુથી પીતા જાય અને બીજી બાજુથી ઊલટી કરતા જાય — અને મનને પૂછે: "હવે હજી પીવી છે તારે?" આ રીતે મનની આસક્તિ તોડી નાખી.`,
+            moral: `મર્મ: કઢીમાં કે મઢીમાં કશો સાર નથી; સાચો સાર તો તમારા પોતાના "માંહી" (ભીતર) રહેલો છે.`
+          }
+        ]
+      },
+      {
+        id: 12,
+        day: `4`,
+        dayLabel: `દિવસ ૪ · સત્ર ૧૨`,
+        timeLabel: `સાંજ — હિતશિક્ષા (૦૪-૧૦-૨૦૨૬)`,
+        title: `સુખી જીવન`,
+        subtitle: `શિબિરનું સમાપન નહીં, અસલી જીવનનો શુભારંભ`,
+        badgeClass: `badge-rose`,
+        summary: `સુખ એટલે મિલન કે પ્રાપ્તિ નહીં — સુખ એટલે મૌજ, તૃપ્તિ અને સ્વાદ! હવે આ સૂત્રોને મોબાઈલની બેટરીની જેમ જીવનમાં સતત સાથે રાખવાનાં છે.`,
+        prose: [
+          `તમને બીજું કંઈ સમજાય કે ન સમજાય, એટલું અવશ્ય સમજાવું જોઈએ કે મારે સુખી રહેવું છે — અને સુખ બહારની પ્રાપ્તિમાં નહીં, પણ ભીતરની <strong>મૌજ, તૃપ્તિ અને સ્વાદ</strong>માં છે. શાસ્ત્રમાં લખ્યું છે: <em>"ભૂયા ભક્ષ્યમ્ અશનં જીર્ણં વાસો વનં ગૃહમ્, તથાપિ સ્યાચ્ચક્રિણોઽપિ અધિકં સુખમ્"</em> — જો તમને આ પૂર્ણ આનંદનો આંશિક પણ સ્વાદ મળી ગયો, તો જમીન પર સૂનારો ફકીર પણ ચક્રવર્તી રાજા કરતાં વધુ સુખી હોય છે!`,
+          `શિબિર ટેક્નિકલ રીતે પૂરી થાય છે, પરંતુ આધ્યાત્મિક જીવન જીવવાની કલા તો આજથી જ શરૂ થાય છે. પૂર્વે આપણે સમવસરણમાં દેશેનપૂર્વ કરોડ વર્ષ સુધી દેશના સાંભળી, પણ સભાનતા નહોતી એટલે અહીં જ રહી ગયા. હવે ભાવોનું પુનરાવર્તન નહીં, ભાવોમાં પરિવર્તન લાવવાનું છે.`
+        ],
+        quote: `«તૂ કોને મારે છે? તે તું જ છે! તૂ કોને કષ્ટ આપે છે? તે તું જ છે! — સમગ્ર જગતને પોતાના સમાન જોવું એ જ અભેદ વિજ્ઞાન.»`,
+        bhajan: `વિદાય ગાન: "સાહિબા, લે ચલ વહાં જહાં તૂ બસા... તુઝસે ઐસા મિલા હૂં મૈં, અપની જો તેરી રૂહ હૈ."`,
+        practice: `જીવન-મંત્ર: મોબાઈલ અને પાકીટની સાથે આ શિબિરનાં ૧૨ સૂત્રોની બેટરી હંમેશાં ચાર્જ રાખવી — સભાનતામાં જીવવું.`,
+        sutrasTitle: `હિતશિક્ષાનાં ૫ અંતિમ સૂત્રો`,
+        sutras: [
+          { title: `૧. સભાનતામાં રહેવું`, meaning: `ક્યાંય મૂર્છિત કે મોહાંધ ન બનવું; દરેક વ્યવહારમાં શિબિરનાં સૂત્રોને બેટરીની જેમ સાથે રાખવાં.` },
+          { title: `૨. આનંદ મારા ઘરમાં છે`, meaning: `બાહ્ય આકર્ષણો આવે ત્યારે પણ શ્રદ્ધા રાખવી કે મારો સાચો વિશ્રામ મારા ભીતરમાં જ છે.` },
+          { title: `૩. ભાવોમાં પરિવર્તન લાવવું`, meaning: `માત્ર સાંભળીને ભૂલી ન જતાં દૈનિક જીવનમાં સમતા અને સરળતા ઉતારવી.` },
+          { title: `૪. સહજ મૌન અને નિષ્પક્ષતા`, meaning: `ફરિયાદો અને અભિપ્રાયોથી મુક્ત થઈ પ્રેમ, મૈત્રી અને કરુણાથી વ્યવહાર નિભાવવો.` },
+          { title: `૫. અભેદ દૃષ્ટિમાં પ્રતિષ્ઠા`, meaning: `વ્યક્તિ અને ભેદથી ઉપર ઊઠીને સર્વમાં એક જ સિદ્ધ-તત્ત્વનો અનુભવ કરવો.` }
+        ],
+        stories: [
+          {
+            id: `s12-1`,
+            theme: `સમર્પણ`,
+            title: `સમવસરણની સત્ય ઘટના અને સાધકોનો અનુભવ`,
+            body: `પૂર્વ ભવોમાં અનંત વાર આપણે તીર્થંકરના સમવસરણમાં સવાર-સાંજ છ-છ કલાક દેશના સાંભળી, છતાં સભાનતા ન હોવાથી આપણા જ ઝમેલામાં ડૂબેલા રહ્યા. બાલોતરા શિબિરના અંતિમ દિવસે સુરત, છત્તીસગઢ અને બાલોતરાના સાધકોએ ભાવવિભોર થઈ અનુભવ વ્યક્ત કર્યો કે "ચાર દિવસમાં જે અદ્વૈત અને અભેદનું વિજ્ઞાન મળ્યું, તેનાથી હવે અસલી જીવનની શરૂઆત થઈ છે!"`,
+            moral: `મર્મ: આ શિબિરની સમાપ્તિ નથી — મોબાઈલ અને મૌનની જાગૃતિ સાથે સાધનામય જીવન જીવવાનો આ પ્રથમ દિવસ છે.`
+          }
+        ]
+      }
+    ];
+
+    const MEDITATION_STEPS = [
+      {
+        title: `ચરણ ૧: ઘર અને સાધન-સામગ્રીનું નિરીક્ષણ`,
+        desc: `આંખો બંધ કરી કલ્પના કરો કે તમે તમારા ઘર કે બંગલામાં બેઠા છો. ચારે બાજુ કબાટ, શોકેસ, સાધનો અને સુવિધાઓ ગોઠવાયેલી છે. કશામાં અટક્યા વગર માત્ર જુઓ કે બધું પોતપોતાની જગ્યાએ છે.`,
+        essence: `મર્મ: સાધનો બહાર છે, હું અંદર છું.`,
+        dissolved: 0
+      },
+      {
+        title: `ચરણ ૨: પરિવાર અને સંબંધીઓની ઉપસ્થિતિ`,
+        desc: `તમારી આસપાસ માતા-પિતા, જીવનસાથી, બાળકો, ભાઈ-બહેન અને મિત્રો પોતપોતાની માન્યતાઓ અને વિચારો સાથે બેઠા છે. કોઈ ભૂતકાળ કે અપેક્ષામાં ગયા વગર માત્ર તેમને જુઓ.`,
+        essence: `મર્મ: દરેક પાત્ર પોતાની ભૂમિકામાં છે; હું માત્ર સાક્ષી છું.`,
+        dissolved: 1
+      },
+      {
+        title: `ચરણ ૩: દેવ વિમાનનું આગમન અને ઉડાન`,
+        desc: `અચાનક ઘરની બહાર દિવ્ય ધ્વનિ સાથે સુવર્ણ-રત્નજડિત દેવ વિમાન ઊતરે છે. એક દિવ્ય દેવ તમને આમંત્રે છે. તમે વિમાનમાં બેસી ઊંચે ઊડો છો — ધીરે ધીરે ઘર, ગામ અને પૃથ્વી એક નાનું બિંદુ બની અદૃશ્ય થઈ જાય છે!`,
+        essence: `મર્મ: જેને "મારું ઘર ને મારું ગામ" માનતા હતા તે પળવારમાં એક બિંદુ બની ખોવાઈ ગયું.`,
+        dissolved: 2
+      },
+      {
+        title: `ચરણ ૪: દેવ અને વિમાન પણ અદૃશ્ય`,
+        desc: `અચાનક કલ્પના કરો કે બાજુમાં બેઠેલો દેવ ગાયબ થઈ ગયો — અને બીજી જ ક્ષણે તે દિવ્ય વિમાન પણ અદૃશ્ય થઈ ગયું! હવે ન ઘર છે, ન ધરતી, ન દેવ, ન વિમાન — અનંત આકાશમાં માત્ર તમે એકલા છો.`,
+        essence: `મર્મ: જૂના સંબંધો છૂટ્યા અને નવા આધારો પણ છૂટી ગયા; હવે કોઈ ટેકો બાકી નથી.`,
+        dissolved: 4
+      },
+      {
+        title: `ચરણ ૫: પવનના ઝોકાથી દેહનું વિસર્જન`,
+        desc: `હવે પવનનો એક ભયાનક ઝોકો આવે છે અને તમારા વાળ, હાથ, પગ, મધ્યભાગ, આંખ અને કાન — સમગ્ર શરીર એક પછી એક વિખેરાઈને ઊડી જાય છે! શરીરનો કોઈ આકાર, રંગ કે પિંડ બચ્યો નથી.`,
+        essence: `મર્મ: શરીર ગાયબ થયું છતાં તમે છો! એટલે તમે શરીર નથી.`,
+        dissolved: 5
+      },
+      {
+        title: `ચરણ ૬: વિચાર, મન અને વ્યાખ્યાઓનું શમન`,
+        desc: `એક શીતળ વર્ષા થાય છે અને તમારા બધા વિચારો, કલ્પનાઓ, નિર્ણયો અને ઘટનાઓની વ્યાખ્યાઓ શાંત પડી જાય છે. કોઈ બોલનાર કે વિચારનાર નથી — પરમ શાંતિ છવાઈ જાય છે.`,
+        essence: `મર્મ: મનના વિરામ પછી પણ તમારી સત્તા અખંડ હાજર છે.`,
+        dissolved: 6
+      },
+      {
+        title: `ચરણ ૭: શુદ્ધ, નિરાકાર "હોવું" (Being)`,
+        desc: `હવે ન ઘર છે, ન દેહ, ન વિચાર, ન કોઈ નામ કે આકાર — માત્ર એક નિરાકાર, અબદ્ધ, પરમ શાંત અને નિર્મળ અસ્તિત્વ! આ જ તમારું અસલ વૈભવ અને પરમાત્મ-સ્વરૂપ છે. થોડી ક્ષણ આ સ્વાદમાં ડૂબી રહો.`,
+        essence: `મર્મ: કંઈ પામવાનું કે બનવાનું નથી — માત્ર શુદ્ધ "હોવું" એ જ સિદ્ધશિલા છે.`,
+        dissolved: 6
+      }
+    ];
+
+    const PERSPECTIVE_SHIFTS = [
+      {
+        id: `sh-1`,
+        samsaraTitle: `સંયોગનું સુખ`,
+        samsaraDesc: `અનુકૂળ વસ્તુ, પદ, પૈસા કે લોકોનાં વખાણ મળે ત્યારે સુખ લાગે — અને તે છૂટે એટલે તરત દુઃખ!`,
+        siddhaTitle: `સ્થિતિનું સુખ`,
+        siddhaDesc: `બહાર કશું બદલાય કે ન બદલાય, ભીતરની પૂર્ણતા, સંતોષ અને મૌજમાં સ્થિર રહેવું તે સ્વાધીન સુખ.`
+      },
+      {
+        id: `sh-2`,
+        samsaraTitle: `વ્યક્તિત્વની પૂજા`,
+        samsaraDesc: `કપડાં, સ્ટેટસ, નામ અને દેખાડાનું કૃત્રિમ મહોરું ઊભું કરી તેને જિંદગીભર સાચવવામાં ભવ બગાડવો.`,
+        siddhaTitle: `અસ્તિત્વનો ઉત્સવ`,
+        siddhaDesc: `બનાવટનું મહોરું ખોઈને કુદરતી, શુદ્ધ અને નિરાકાર ચૈતન્ય-સ્વરૂપમાં સરળ બનીને જીવવું.`
+      },
+      {
+        id: `sh-3`,
+        samsaraTitle: `૪ ઈંટોનો બોજ`,
+        samsaraDesc: `તન, મન, નામ અને અહંકારની ભારે ઈંટો માથે ઉપાડીને મુક્તિના પહાડ પર ચઢવાનો થકવી નાખનાર પ્રયાસ.`,
+        siddhaTitle: `શૂન્યતાની ઉડાન`,
+        siddhaDesc: `બધો ભાર અને માલિકીભાવ ઉતારી દેતાં જ ભીતરમાં પરમાત્માનું અસીમ આકાશ ખૂલી જાય છે.`
+      },
+      {
+        id: `sh-4`,
+        samsaraTitle: `માત્ર "બી પોઝિટિવ"`,
+        samsaraDesc: `પુસ્તકો વાંચીને ઉપરથી સારા વિચારો ગોખવા, જે અઘરી પરિસ્થિતિ આવતાં જ ગાયબ થઈ જાય છે.`,
+        siddhaTitle: `શુદ્ધ હોવું (Being Pure)`,
+        siddhaDesc: `અંદરથી કષાય-મુક્ત અને શુદ્ધ બનવું; શુદ્ધતામાં સાચો પ્રતિભાવ આપોઆપ પ્રગટે છે.`
+      },
+      {
+        id: `sh-5`,
+        samsaraTitle: `ઊંટ કલા (ફસાઈ જવું)`,
+        samsaraDesc: `દરેક વ્યવહાર, સંબંધ અને મતભેદમાં ગૂંચવાઈને પ્રતિક્રિયા (Reaction) આપ્યા કરવી.`,
+        siddhaTitle: `નટ, પટ અને તટ કલા`,
+        siddhaDesc: `નટની જેમ રોલ ભજવવો, પટની જેમ અલિપ્ત રહેવું અને કિનારા (તટ) પર ઊભા રહી વહેણ જોવું.`
+      },
+      {
+        id: `sh-6`,
+        samsaraTitle: `વ્યક્તિ અને મંદિરમાં અટકવું`,
+        samsaraDesc: `નદી પાર કર્યા પછી પણ હોડીને માથે મૂકીને ફરવા જેવી સાધનો પ્રત્યેની અંધ-પકડ.`,
+        siddhaTitle: `મર્મ અને મંઝિલની દૃષ્ટિ`,
+        siddhaDesc: `દરેક ક્રિયા, શાસ્ત્ર અને સાધનનો ઉપયોગ માત્ર મંઝિલ (આત્મ-વિશ્રામ) સુધી પહોંચવા માટે કરવો.`
+      }
+    ];
+
+    // --- Application State (Persisted via notebookAppApi) ---
+    const appState = {
+      checkedSutras: [],
+      awakenedShifts: [],
+      diaryEntries: [],
+      selectedAtlasSession: 1,
+      meditationStep: 0
+    };
+
+    // Helper: Convert ASCII digits to Gujarati numerals for display
+    function toGujaratiNum(num) {
+      const digits = ['૦', '૧', '૨', '૩', '૪', '૫', '૬', '૭', '૮', '૯'];
+      return String(num).replace(/[0-9]/g, function(d) {
+        return digits[parseInt(d, 10)];
+      });
+    }
+
+    async function persistState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+          await window.notebookAppApi.setAppState({
+            checkedSutras: appState.checkedSutras,
+            awakenedShifts: appState.awakenedShifts,
+            diaryEntries: appState.diaryEntries,
+            selectedAtlasSession: appState.selectedAtlasSession,
+            meditationStep: appState.meditationStep
+          });
+        }
+      } catch (err) {
+        // Silent graceful fallback if previewed outside host
+      }
+    }
+
+    // --- Render Atlas Grid ---
+    function renderAtlas() {
+      const grid = document.getElementById('atlas-grid');
+      if (!grid) return;
+      let html = ``;
+      SESSIONS_DATA.forEach(function(s) {
+        const checkedCount = s.sutras.filter(function(_, idx) {
+          return appState.checkedSutras.indexOf(`${s.id}-${idx}`) !== -1;
+        }).length;
+        const isSelected = appState.selectedAtlasSession === s.id ? ` is-selected` : ``;
+        html += `
+          <button type="button" class="atlas-tile${isSelected}" data-day="${s.day}" data-session-id="${s.id}" onclick="selectAtlasSession(${s.id})">
+            <div class="atlas-meta">
+              <span>${s.dayLabel}</span>
+              <span>${toGujaratiNum(s.stories.length)} કથા</span>
+            </div>
+            <div class="atlas-title">${toGujaratiNum(s.id)}. ${s.title}</div>
+            <div class="atlas-sub">${s.subtitle}</div>
+            <div class="atlas-status">અભ્યાસ: ${toGujaratiNum(checkedCount)} / ${toGujaratiNum(s.sutras.length)} સૂત્રો</div>
+          </button>
+        `;
+      });
+      grid.innerHTML = html;
+      updateAtlasPreview(appState.selectedAtlasSession);
+    }
+
+    function selectAtlasSession(sessionId) {
+      appState.selectedAtlasSession = sessionId;
+      const tiles = document.querySelectorAll('.atlas-tile');
+      tiles.forEach(function(tile) {
+        if (parseInt(tile.getAttribute('data-session-id'), 10) === sessionId) {
+          tile.classList.add('is-selected');
+        } else {
+          tile.classList.remove('is-selected');
+        }
+      });
+      updateAtlasPreview(sessionId);
+      persistState();
+    }
+
+    function updateAtlasPreview(sessionId) {
+      const session = SESSIONS_DATA.find(function(s) { return s.id === sessionId; }) || SESSIONS_DATA[0];
+      const titleEl = document.getElementById('preview-title');
+      const sumEl = document.getElementById('preview-summary');
+      const linkEl = document.getElementById('preview-jump-link');
+      if (titleEl) titleEl.textContent = `સત્ર ${toGujaratiNum(session.id)}: ${session.title} — ${session.subtitle}`;
+      if (sumEl) sumEl.textContent = session.summary;
+      if (linkEl) linkEl.setAttribute('href', `#session-${session.id}`);
+    }
+
+    function filterAtlasDay(day, btnEl) {
+      const btns = document.querySelectorAll('.chapter-nav .day-filter-pills .pill-btn');
+      btns.forEach(function(b) { b.classList.remove('is-active'); });
+      if (btnEl) btnEl.classList.add('is-active');
+
+      const tiles = document.querySelectorAll('.atlas-tile');
+      tiles.forEach(function(tile) {
+        if (day === 'all' || tile.getAttribute('data-day') === day) {
+          tile.classList.remove('is-hidden-day');
+        } else {
+          tile.classList.add('is-hidden-day');
+        }
+      });
+    }
+
+    // --- Meditation Studio Logic ---
+    function setMeditationStep(index) {
+      const clamped = Math.max(0, Math.min(MEDITATION_STEPS.length - 1, index));
+      appState.meditationStep = clamped;
+      const step = MEDITATION_STEPS[clamped];
+
+      const titleEl = document.getElementById('med-step-title');
+      const descEl = document.getElementById('med-step-desc');
+      const essenceEl = document.getElementById('med-step-essence');
+      const captionEl = document.getElementById('mandala-caption');
+
+      if (titleEl) titleEl.textContent = step.title;
+      if (descEl) descEl.textContent = step.desc;
+      if (essenceEl) essenceEl.textContent = step.essence;
+      if (captionEl) {
+        captionEl.textContent = `ચરણ ${toGujaratiNum(clamped + 1)} / ૭: ${clamped === 6 ? 'બધાં આવરણો વિલીન — માત્ર શુદ્ધ અસ્તિત્વ' : 'આવરણ વિસર્જન ક્રમ'}`;
+      }
+
+      for (let r = 1; r <= 6; r++) {
+        const ring = document.getElementById(`ring-${r}`);
+        if (ring) {
+          if (r <= step.dissolved) {
+            ring.classList.add('is-dissolved');
+          } else {
+            ring.classList.remove('is-dissolved');
+          }
+        }
+      }
+
+      const dotBtns = document.querySelectorAll('.step-dot-btn');
+      dotBtns.forEach(function(btn, idx) {
+        btn.classList.remove('is-active', 'is-passed');
+        if (idx === clamped) {
+          btn.classList.add('is-active');
+        } else if (idx < clamped) {
+          btn.classList.add('is-passed');
+        }
+      });
+      persistState();
+    }
+
+    function stepMeditation(delta) {
+      setMeditationStep(appState.meditationStep + delta);
+    }
+
+    // --- Perspective Flipper Logic ---
+    function renderPerspectiveFlipper() {
+      const grid = document.getElementById('flipper-grid');
+      if (!grid) return;
+      let html = ``;
+      PERSPECTIVE_SHIFTS.forEach(function(item) {
+        const isAwakened = appState.awakenedShifts.indexOf(item.id) !== -1;
+        html += `
+          <div class="shift-card${isAwakened ? ' is-awakened' : ''}" id="card-${item.id}">
+            <div class="shift-tag">${isAwakened ? 'સિદ્ધશિલાની દૃષ્ટિ (જાગૃત)' : 'સંસારની માન્યતા (ભ્રમ)'}</div>
+            <h3>${isAwakened ? item.siddhaTitle : item.samsaraTitle}</h3>
+            <p class="shift-desc">${isAwakened ? item.siddhaDesc : item.samsaraDesc}</p>
+            <div>
+              <button type="button" class="pill-btn" onclick="toggleShiftCard('${item.id}')">
+                ${isAwakened ? '← જૂની માન્યતા જુઓ' : 'દૃષ્ટિ પલટાવો →'}
+              </button>
+            </div>
+          </div>
+        `;
+      });
+      grid.innerHTML = html;
+
+      const flipAllBtn = document.getElementById('flip-all-btn');
+      if (flipAllBtn) {
+        const allAwakened = appState.awakenedShifts.length === PERSPECTIVE_SHIFTS.length;
+        flipAllBtn.textContent = allAwakened ? `બધાં કાર્ડ મૂળ સ્થિતિમાં લાવો` : `બધાં કાર્ડ જાગૃત દૃષ્ટિમાં ફેરવો`;
+      }
+    }
+
+    function toggleShiftCard(shiftId) {
+      const idx = appState.awakenedShifts.indexOf(shiftId);
+      if (idx === -1) {
+        appState.awakenedShifts.push(shiftId);
+      } else {
+        appState.awakenedShifts.splice(idx, 1);
+      }
+      renderPerspectiveFlipper();
+      persistState();
+    }
+
+    function toggleAllShifts() {
+      if (appState.awakenedShifts.length === PERSPECTIVE_SHIFTS.length) {
+        appState.awakenedShifts = [];
+      } else {
+        appState.awakenedShifts = PERSPECTIVE_SHIFTS.map(function(s) { return s.id; });
+      }
+      renderPerspectiveFlipper();
+      persistState();
+    }
+
+    // --- Render All 12 Sessions Narrative ---
+    function renderAllSessions() {
+      const container = document.getElementById('sessions-container');
+      if (!container) return;
+
+      const dayHeaders = {
+        '1': { title: `દિવસ ૧ — જાગરણ, સરળતા અને સંવેગ`, desc: `પહેલા દિવસે ઊંઘમાંથી જાગીને "અહીં અને અત્યારે" આવવું, આકારથી પાર થઈ કલ્પના-છેદ ધ્યાન કરવું અને અનિત્યતાનો બોધ જગાડવો.` },
+        '2': { title: `દિવસ ૨ — સમર્પણ, સ્વાનુભૂતિ અને સાધક ભાવ`, desc: `બીજા દિવસે "હું"ની શૂન્યતા કેળવવી, શિબિરના હાર્દરૂપ "આમાં આનંદઘનને શું?" અપનાવવું અને શ્વાસે-શ્વાસે સાધના જીવવી.` },
+        '3': { title: `દિવસ ૩ — સાધ્ય, સામ્ય અને તાત્ત્વિક સ્વીકાર`, desc: `ત્રીજા દિવસે સાધનોને બદલે મંઝિલ જોવી, અનેકમાં એકની ઓળખ કરવી અને અલિપ્ત સ્વીકારની ભૂમિકાએ પહોંચવું.` },
+        '4': { title: `દિવસ ૪ — સ્પર્શ, સાક્ષી અને સુખી જીવન`, desc: `ચોથા દિવસે અનન્ય ભક્તિની વેવલેન્થ જોડવી, તટસ્થ સાક્ષી બની રહેવું અને મૌજ-તૃપ્તિમય નવા જીવનનો પ્રારંભ કરવો.` }
+      };
+
+      let html = ``;
+      let currentDay = ``;
+
+      SESSIONS_DATA.forEach(function(s) {
+        if (s.day !== currentDay) {
+          currentDay = s.day;
+          const dh = dayHeaders[currentDay];
+          html += `
+            <div class="day-banner" id="day-${currentDay}">
+              <div>
+                <span class="${s.badgeClass}">દિવસ ${toGujaratiNum(currentDay)}</span>
+                <h2>${dh.title}</h2>
+                <p>${dh.desc}</p>
+              </div>
+              <a href="#sadhana-atlas" class="pill-btn">↑ સત્ર-સૂચિ પર જાઓ</a>
+            </div>
+          `;
+        }
+
+        const proseHtml = s.prose.map(function(p) { return `<p>${p}</p>`; }).join('');
+
+        let sutrasHtml = ``;
+        s.sutras.forEach(function(su, idx) {
+          const key = `${s.id}-${idx}`;
+          const isChecked = appState.checkedSutras.indexOf(key) !== -1;
+          sutrasHtml += `
+            <li class="sutra-item${isChecked ? ' is-checked' : ''}" id="sutra-item-${key}">
+              <button type="button" class="sutra-check-btn" aria-pressed="${isChecked ? 'true' : 'false'}" onclick="toggleSutra('${key}')" title="આજે અભ્યાસ કર્યો">
+                ${isChecked ? '✓' : toGujaratiNum(idx + 1)}
+              </button>
+              <div class="sutra-text-wrap">
+                <span class="sutra-title">${su.title}</span>
+                <span class="sutra-meaning">${su.meaning}</span>
+              </div>
+            </li>
+          `;
+        });
+
+        let storiesHtml = ``;
+        s.stories.forEach(function(st) {
+          storiesHtml += `
+            <article class="story-card" id="story-${st.id}">
+              <div class="story-card-top">
+                <h4>${st.title}</h4>
+                <span class="badge-brass">${st.theme}</span>
+              </div>
+              <p class="story-body">${st.body}</p>
+              <div class="moral-box" id="moral-${st.id}">${st.moral}</div>
+              <div class="story-actions">
+                <button type="button" class="moral-toggle-btn" aria-expanded="false" onclick="toggleStoryMoral('${st.id}', this)">
+                  કથાનો મર્મ જાણો ↓
+                </button>
+              </div>
+            </article>
+          `;
+        });
+
+        html += `
+          <article class="session-article" id="session-${s.id}" aria-labelledby="session-title-${s.id}">
+            <div class="session-header">
+              <div class="session-top-row">
+                <span class="${s.badgeClass}">${s.dayLabel} · ${s.timeLabel}</span>
+                <a href="#sadhana-atlas" class="pill-btn" style="min-height: 44px;">સૂચિમાં પાછા જાઓ ↑</a>
+              </div>
+              <h2 class="session-title" id="session-title-${s.id}">સત્ર ${toGujaratiNum(s.id)}: ${s.title}</h2>
+              <p class="session-subtitle">${s.subtitle}</p>
+            </div>
+
+            <div class="session-body-grid">
+              <div class="prose-block">
+                ${proseHtml}
+                <blockquote class="quote-callout">${s.quote}</blockquote>
+                <div class="bhajan-callout">
+                  <strong>પદ-ગાન અને દિનચર્યા સાધના</strong>
+                  ${s.bhajan}<br>
+                  <span style="display: inline-block; margin-top: var(--space-xs); font-weight: 600;">${s.practice}</span>
+                </div>
+              </div>
+
+              <aside class="sutras-panel" aria-label="સત્ર ${toGujaratiNum(s.id)} નાં પાંચ સૂત્રો">
+                <h3>${s.sutrasTitle}</h3>
+                <p class="sutras-hint">જે સૂત્ર આજે જીવનમાં ઉતાર્યું હોય તેના પર ટિક (✓) કરો:</p>
+                <ul class="sutra-list">
+                  ${sutrasHtml}
+                </ul>
+              </aside>
+            </div>
+
+            <div>
+              <div class="stories-block-header">
+                <h3>સત્ર ${toGujaratiNum(s.id)} નાં પ્રેરક દૃષ્ટાંતો અને બોધકથાઓ (${toGujaratiNum(s.stories.length)})</h3>
+              </div>
+              <div class="stories-grid" style="margin-top: var(--space-md);">
+                ${storiesHtml}
+              </div>
+            </div>
+          </article>
+        `;
+      });
+
+      container.innerHTML = html;
+      updateCheckedMetric();
+    }
+
+    function toggleSutra(key) {
+      const idx = appState.checkedSutras.indexOf(key);
+      if (idx === -1) {
+        appState.checkedSutras.push(key);
+      } else {
+        appState.checkedSutras.splice(idx, 1);
+      }
+      const item = document.getElementById(`sutra-item-${key}`);
+      if (item) {
+        const btn = item.querySelector('.sutra-check-btn');
+        const isChecked = appState.checkedSutras.indexOf(key) !== -1;
+        if (isChecked) {
+          item.classList.add('is-checked');
+          if (btn) {
+            btn.setAttribute('aria-pressed', 'true');
+            btn.textContent = '✓';
+          }
+        } else {
+          item.classList.remove('is-checked');
+          if (btn) {
+            btn.setAttribute('aria-pressed', 'false');
+            const numPart = parseInt(key.split('-')[1], 10) + 1;
+            btn.textContent = toGujaratiNum(numPart);
+          }
+        }
+      }
+      updateCheckedMetric();
+      renderAtlas();
+      persistState();
+    }
+
+    function updateCheckedMetric() {
+      const el = document.getElementById('metric-sutras-checked');
+      if (el) {
+        el.textContent = `${toGujaratiNum(appState.checkedSutras.length)} / ૬૦`;
+      }
+    }
+
+    function toggleStoryMoral(storyId, btn) {
+      const box = document.getElementById(`moral-${storyId}`);
+      if (!box || !btn) return;
+      const isOpen = box.classList.contains('is-open');
+      if (isOpen) {
+        box.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = `કથાનો મર્મ જાણો ↓`;
+      } else {
+        box.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = `મર્મ છુપાવો ↑`;
+      }
+    }
+
+    // --- Katha Kosh Index ---
+    function renderKathaIndex() {
+      const grid = document.getElementById('katha-index-grid');
+      if (!grid) return;
+      let html = ``;
+      SESSIONS_DATA.forEach(function(s) {
+        s.stories.forEach(function(st) {
+          html += `
+            <div class="katha-index-card" data-theme="${st.theme}">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-xs);">
+                <span style="font-size: var(--label-size); font-weight: 700; color: var(--secondary);">સત્ર ${toGujaratiNum(s.id)}</span>
+                <span class="badge-emerald">${st.theme}</span>
+              </div>
+              <h4>${st.title}</h4>
+              <p>${st.moral}</p>
+              <div style="margin-top: auto; padding-top: var(--space-xs);">
+                <a href="#story-${st.id}" class="pill-btn" onclick="openStoryById('${st.id}')">પૂરી કથા વાંચો →</a>
+              </div>
+            </div>
+          `;
+        });
+      });
+      grid.innerHTML = html;
+    }
+
+    function openStoryById(storyId) {
+      const box = document.getElementById(`moral-${storyId}`);
+      const card = document.getElementById(`story-${storyId}`);
+      if (box && !box.classList.contains('is-open') && card) {
+        const btn = card.querySelector('.moral-toggle-btn');
+        if (btn) toggleStoryMoral(storyId, btn);
+      }
+    }
+
+    function filterKathaTheme(theme, btnEl) {
+      const btns = document.querySelectorAll('#katha-kosh .day-filter-pills .pill-btn');
+      btns.forEach(function(b) { b.classList.remove('is-active'); });
+      if (btnEl) btnEl.classList.add('is-active');
+
+      const cards = document.querySelectorAll('.katha-index-card');
+      cards.forEach(function(c) {
+        if (theme === 'all' || c.getAttribute('data-theme') === theme) {
+          c.classList.remove('is-hidden-theme');
+        } else {
+          c.classList.add('is-hidden-theme');
+        }
+      });
+    }
+
+    // --- Sadhana Diary & File Export ---
+    function renderDiaryEntries() {
+      const list = document.getElementById('saved-entries-list');
+      if (!list) return;
+      if (appState.diaryEntries.length === 0) {
+        list.innerHTML = `
+          <div class="saved-entry-card">
+            <div>
+              <strong>હજી સુધી કોઈ સાધના નોંધ લખાઈ નથી</strong>
+              <p style="margin: var(--space-xs) 0 0 0; color: var(--on-surface-variant); font-size: 0.94rem;">
+                ઉપરથી તમારું પ્રિય સત્ર પસંદ કરી આજનો સંકલ્પ લખો — તમારી નોંધ અહીં સાચવાઈ જશે.
+              </p>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      let html = ``;
+      appState.diaryEntries.forEach(function(entry, idx) {
+        html += `
+          <div class="saved-entry-card">
+            <div>
+              <span class="badge-emerald" style="margin-bottom: var(--space-xs);">${entry.session}</span>
+              <div style="font-weight: 700; margin-top: var(--space-xs);">સંકલ્પ: ${entry.practice}</div>
+              <p style="margin: var(--space-xs) 0 0 0; color: var(--on-surface-variant);">${entry.note}</p>
+            </div>
+            <button type="button" class="pill-btn" onclick="deleteDiaryEntry(${idx})" aria-label="આ નોંધ કાઢી નાખો">કાઢો</button>
+          </div>
+        `;
+      });
+      list.innerHTML = html;
+    }
+
+    function saveDiaryEntry() {
+      const sessionEl = document.getElementById('diary-session-select');
+      const practiceEl = document.getElementById('diary-practice-input');
+      const noteEl = document.getElementById('diary-note-textarea');
+      const statusEl = document.getElementById('diary-status-msg');
+
+      const session = sessionEl ? sessionEl.value : ``;
+      const practice = practiceEl ? practiceEl.value.trim() : ``;
+      const note = noteEl ? noteEl.value.trim() : ``;
+
+      if (!practice && !note) {
+        if (statusEl) statusEl.textContent = `કૃપા કરીને તમારો સંકલ્પ અથવા અંતર-અનુભવ લખો.`;
+        return;
+      }
+
+      appState.diaryEntries.unshift({
+        session: session,
+        practice: practice || `સહજ જાગૃતિ`,
+        note: note || `સત્રના ભાવો હૃદયમાં ઉતાર્યા.`
+      });
+
+      if (practiceEl) practiceEl.value = ``;
+      if (noteEl) noteEl.value = ``;
+      if (statusEl) statusEl.textContent = `તમારી સાધના નોંધ સફળતાપૂર્વક સાચવી લેવામાં આવી છે.`;
+
+      renderDiaryEntries();
+      persistState();
+    }
+
+    function deleteDiaryEntry(index) {
+      appState.diaryEntries.splice(index, 1);
+      renderDiaryEntries();
+      persistState();
+    }
+
+    function exportSadhanaSummary() {
+      const statusEl = document.getElementById('diary-status-msg');
+      let lines = [
+        `=== જીવન એક સિદ્ધશિલા — બાલોતરા શિબિર સાધના સારાંશ ===`,
+        `અભ્યાસ કરેલાં સૂત્રો: ${appState.checkedSutras.length} / 60`,
+        ``
+      ];
+
+      if (appState.checkedSutras.length > 0) {
+        lines.push(`--- ટિક કરેલાં સૂત્રો ---`);
+        appState.checkedSutras.forEach(function(key) {
+          const parts = key.split('-');
+          const sId = parseInt(parts[0], 10);
+          const idx = parseInt(parts[1], 10);
+          const sess = SESSIONS_DATA.find(function(x) { return x.id === sId; });
+          if (sess && sess.sutras[idx]) {
+            lines.push(`• સત્ર ${sId} (${sess.title}): ${sess.sutras[idx].title}`);
+          }
+        });
+        lines.push(``);
+      }
+
+      if (appState.diaryEntries.length > 0) {
+        lines.push(`--- મારી સાધના નોંધો ---`);
+        appState.diaryEntries.forEach(function(e, i) {
+          lines.push(`${i + 1}. [${e.session}] સંકલ્પ: ${e.practice}`);
+          lines.push(`   નોંધ: ${e.note}`);
+        });
+      }
+
+      const content = lines.join('\n');
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
+        window.notebookAppApi.triggerFileDownload({
+          content: content,
+          contentType: 'text/plain',
+          encoding: 'UTF-8',
+          filename: 'jeevan-ek-siddhashila-sadhana.txt'
+        });
+        if (statusEl) statusEl.textContent = `તમારો સાધના સારાંશ ડાઉનલોડ માટે તૈયાર છે.`;
+      } else {
+        if (statusEl) statusEl.textContent = `નોંધ સંગ્રહિત છે (ડાઉનલોડ સુવિધા નોટબુક હોસ્ટમાં ઉપલબ્ધ થાય છે).`;
+      }
+    }
+
+    function resetAllProgress(btn) {
+      const statusEl = document.getElementById('diary-status-msg');
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `ખાતરી છે? ફરી ક્લિક કરો`;
+        if (statusEl) statusEl.textContent = `બધો અભ્યાસ અને નોંધ સાફ કરવા માટે બટન પર ફરી ક્લિક કરો.`;
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.textContent = `બધી પ્રગતિ રીસેટ કરો`;
+      appState.checkedSutras = [];
+      appState.awakenedShifts = [];
+      appState.diaryEntries = [];
+      appState.selectedAtlasSession = 1;
+      appState.meditationStep = 0;
+
+      renderAllSessions();
+      renderAtlas();
+      renderPerspectiveFlipper();
+      setMeditationStep(0);
+      renderDiaryEntries();
+      if (statusEl) statusEl.textContent = `બધી પ્રગતિ ફરીથી શૂન્ય કરી દેવામાં આવી છે.`;
+      persistState();
+    }
+
+    // --- Initialize App & Restore State ---
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved) {
+            if (Array.isArray(saved.checkedSutras)) appState.checkedSutras = saved.checkedSutras;
+            if (Array.isArray(saved.awakenedShifts)) appState.awakenedShifts = saved.awakenedShifts;
+            if (Array.isArray(saved.diaryEntries)) appState.diaryEntries = saved.diaryEntries;
+            if (typeof saved.selectedAtlasSession === 'number') appState.selectedAtlasSession = saved.selectedAtlasSession;
+            if (typeof saved.meditationStep === 'number') appState.meditationStep = saved.meditationStep;
+          }
+        }
+      } catch (err) {
+        // Proceed with defaults if no host state
+      }
+
+      renderAtlas();
+      renderPerspectiveFlipper();
+      renderAllSessions();
+      renderKathaIndex();
+      renderDiaryEntries();
+      setMeditationStep(appState.meditationStep);
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initApp();
+    });
+  </script>
+</body>
+</html>
